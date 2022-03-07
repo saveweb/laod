@@ -24,6 +24,6 @@ while page != 68:
         #print(content)
 
 
-        f = open('./'+link.replace('https://laod.cn/', ''), 'w')
+        f = open('./'+link.replace('https://laod.cn/', ''), 'w')#先手工把文件夹建好
         f.write(article)
         f.close()
