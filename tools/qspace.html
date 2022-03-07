@@ -1,30 +1,478 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover"><title>QSpace：一款MacOS多视图 &#8220;Finder&#8221; 效率工具(多视图文件管理) - 老D博客</title><meta name="keywords" content="mac文件管理,QSpace,多视图文件管理" /><meta name="description" content="QSpace是一款简洁高效的多视图文件管理器。她有着和系统访达相一致的操作习惯和界面呈现，同时还支持更多灵活而实用的特色功能。有了她，让你轻松摆脱多窗口来回切换的繁琐，和拖拽时找不准目标的尴尬！ （目前这款APP限时优惠，仅需1块钱） 来自作者的话： 用MacOS做开发已经六七年了，真的很爽。体验上比Linux稳定，UI更完善，还兼容强大的Terminal。比Windows颜值高很多，与nix的兼..." /><meta property="og:type" content="article" /><meta property="og:url" content="https://laod.cn/tools/qspace.html" /><meta property="og:site_name" content="老D博客" /><meta property="og:title" content="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" /><meta property="og:image" content="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg" /><meta property="og:description" content="QSpace是一款简洁高效的多视图文件管理器。她有着和系统访达相一致的操作习惯和界面呈现，同时还支持更多灵活而实用的特色功能。有了她，让你轻松摆脱多窗口来回切换的繁琐，和拖拽时找不准目标的尴尬！ （目前这款APP限时优惠，仅需1块钱） 来自作者的话： 用MacOS做开发已经六七年了，真的很爽。体验上比Linux稳定，UI更完善，还兼容强大的Terminal。比Windows颜值高很多，与nix的兼..." /><link rel="canonical" href="https://laod.cn/tools/qspace.html" /><meta name="applicable-device" content="pc,mobile" /><meta http-equiv="Cache-Control" content="no-transform" /><link rel="shortcut icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /><link rel='dns-prefetch' href='//cdn.laod.wang' /><link rel='dns-prefetch' href='//s2.ax1x.com' /><link rel='stylesheet' id='stylesheet-css' href='//laod.cn/wp-content/uploads/wpcom/style.6.8.2.1632028585.css?ver=6.8.2' type='text/css' media='all' /><link rel='stylesheet' id='font-awesome-css' href='https://laod.cn/wp-content/themes/justnews/themer/assets/css/font-awesome.css?ver=6.8.2' type='text/css' media='all' /><link rel='stylesheet' id='wp-block-library-css' href='https://laod.cn/wp-includes/css/dist/block-library/style.min.css?ver=5.9.1' type='text/css' media='all' /><style id='global-styles-inline-css' type='text/css'>body{--wp--preset--color--black:#000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#fff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px}.has-black-color{color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-color{color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-color{color:var(--wp--preset--color--white)!important}.has-pale-pink-color{color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-color{color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-color{color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-color{color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-color{color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-color{color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-color{color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-color{color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-color{color:var(--wp--preset--color--vivid-purple)!important}.has-black-background-color{background-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-background-color{background-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-background-color{background-color:var(--wp--preset--color--white)!important}.has-pale-pink-background-color{background-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-background-color{background-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-background-color{background-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-background-color{background-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-background-color{background-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-background-color{background-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-background-color{background-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-background-color{background-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-background-color{background-color:var(--wp--preset--color--vivid-purple)!important}.has-black-border-color{border-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-border-color{border-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-border-color{border-color:var(--wp--preset--color--white)!important}.has-pale-pink-border-color{border-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-border-color{border-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-border-color{border-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-border-color{border-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-border-color{border-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-border-color{border-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-border-color{border-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-border-color{border-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-border-color{border-color:var(--wp--preset--color--vivid-purple)!important}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple)!important}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan)!important}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange)!important}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red)!important}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray)!important}.has-cool-to-warm-spectrum-gradient-background{background:var(--wp--preset--gradient--cool-to-warm-spectrum)!important}.has-blush-light-purple-gradient-background{background:var(--wp--preset--gradient--blush-light-purple)!important}.has-blush-bordeaux-gradient-background{background:var(--wp--preset--gradient--blush-bordeaux)!important}.has-luminous-dusk-gradient-background{background:var(--wp--preset--gradient--luminous-dusk)!important}.has-pale-ocean-gradient-background{background:var(--wp--preset--gradient--pale-ocean)!important}.has-electric-grass-gradient-background{background:var(--wp--preset--gradient--electric-grass)!important}.has-midnight-gradient-background{background:var(--wp--preset--gradient--midnight)!important}.has-small-font-size{font-size:var(--wp--preset--font-size--small)!important}.has-medium-font-size{font-size:var(--wp--preset--font-size--medium)!important}.has-large-font-size{font-size:var(--wp--preset--font-size--large)!important}.has-x-large-font-size{font-size:var(--wp--preset--font-size--x-large)!important}</style> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/themer/assets/js/jquery-3.6.0.min.js?ver=3.6.0' id='jquery-core-js'></script> <script type='text/javascript' src='https://laod.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/themer/assets/js/icons-2.6.18.js?ver=6.8.2' id='wpcom-icons-js'></script> <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://laod.cn/xmlrpc.php?rsd" /><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://laod.cn/wp-includes/wlwmanifest.xml" /><link rel="icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" sizes="32x32" /><link rel="icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" sizes="192x192" /><link rel="apple-touch-icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /><meta name="msapplication-TileImage" content="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /> <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player,[data-lazy-src]{display:none!important}</style></noscript> <!--[if lte IE 9]><script src="https://laod.cn/wp-content/themes/justnews/js/update.js"></script><![endif]--></head><body class="post-template-default single single-post postid-6293 single-format-standard lang-cn el-boxed"><header class="header"><div class="container clearfix"><div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-label="menu"> <span class="icon-bar icon-bar-1"></span> <span class="icon-bar icon-bar-2"></span> <span class="icon-bar icon-bar-3"></span> </button><div class="logo"> <a href="https://laod.cn" rel="home"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="老D博客" data-lazy-src="https://laod.cn/wp-content/uploads/2020/05/shinian-logo.png"><noscript><img src="https://laod.cn/wp-content/uploads/2020/05/shinian-logo.png" alt="老D博客"></noscript></a></div></div><div class="collapse navbar-collapse"><nav class="navbar-left primary-menu"><ul id="menu-x" class="nav navbar-nav wpcom-adv-menu"><li class="zmzm-shouye menu-item"><a href="https://laod.cn">首页</a></li><li class="zmzm-feiji1 menu-item"><a href="https://laod.cn/hosts">hosts</a></li><li class="zmzm-gongju menu-item current-post-ancestor current-post-parent active"><a href="https://laod.cn/tools">工具软件</a></li><li class="zmzm-code menu-item"><a href="https://laod.cn/code-audit">代码审计</a></li><li class="zmzm-keji menu-item"><a href="https://laod.cn/black-technology">黑科技</a></li><li class="zmzm-liuyan menu-item"><a href="https://laod.cn/guestbook">留言版</a></li><li class="zmzm-gengduo menu-item menu-item-style menu-item-style1 dropdown"><a href="#" class="dropdown-toggle">查看更多</a><ul class="dropdown-menu menu-item-wrap menu-item-col-4"><li class="zmzm-dianying menu-item"><a href="https://laod.cn/movie">电影·美剧</a></li><li class="zmzm-anquan menu-item"><a href="https://laod.cn/security">网络安全</a></li><li class="zmzm-zixun menu-item"><a href="https://laod.cn/news">业界资讯</a></li><li class="zmzm-mianfei-copy menu-item"><a href="https://laod.cn/free">免费资源</a></li></ul></li></ul></nav><div class="navbar-action pull-right"><div class="navbar-search-icon j-navbar-search"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-search"></use></svg></i></div><div id="j-user-wrap"> <a class="login" href="https://laod.cn/login?modal-type=login">登录</a> <a class="login register" href="https://laod.cn/register?modal-type=register">注册</a></div></div><form class="navbar-search" action="https://laod.cn" method="get" role="search"><div class="navbar-search-inner"> <i class="wpcom-icon wi navbar-search-close"><svg aria-hidden="true"><use xlink:href="#wi-close"></use></svg></i> <input type="text" name="s" class="navbar-search-input" autocomplete="off" placeholder="输入关键词搜索..." value=""> <button class="navbar-search-btn" type="submit"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-search"></use></svg></i></button></div></form></div></div></header><div id="wrap"><div class="wrap container"><main class="main"><article id="post-6293" class="post-6293 post type-post status-publish format-standard hentry category-tools tag-mac tag-qspace tag-1650 entry"><div class="entry-main"><div class="entry-head"><h1 class="entry-title">QSpace：一款MacOS多视图 &#8220;Finder&#8221; 效率工具(多视图文件管理)</h1><div class="entry-info"> <time class="entry-date published" datetime="2019-08-28T01:48:23+08:00" pubdate> 2019-08-28 01:48 </time> <span class="dot">•</span> <a href="https://laod.cn/tools" rel="category tag">工具软件</a> <span class="dot">•</span> <span>阅读 9671</span></div></div><div class="entry-content text-indent"><p dir="ltr" data-test-bidi="">QSpace 是一款简洁高效的多视图文件管理器。她有着和系统访达相一致的操作习惯和界面呈现，同时还支持更多灵活而实用的特色功能。有了她，让你轻松摆脱多窗口来回切换的繁琐，和拖拽时找不准目标的尴尬！</p><p dir="ltr" style="text-align: center;" data-test-bidi=""><span style="color: #993300;">（目前这款APP限时优惠，仅需1块钱）</span></p><blockquote><p><strong>来自作者的话：</strong></p><p>用 MacOS 做开发已经六七年了，真的很爽。体验上比 Linux 稳定，UI 更完善，还兼容强大的 Terminal。比 Windows 颜值高很多，与 nix 的兼容互通性很强（当然 Linux 有自由而丰富的社区资源，Windows 有完备而坚实的应用生态）。虽然不同系统都各有所长，但就开发体验而言 MacOS 略胜一筹（毕竟能自如地进行移动端和前后端开发）。</p><p>一直以来，MacOS 的 Finder 和终端直接的切换让我很手残，没有便捷的路径复制，一直 cdcdcd。。。最后，我只能打开终端，然后 cd 拖过去的文件夹 -_-||| 而且有时候，一个项目会涉及到文档、设计稿、资源、代码等多个目录，每次都重复打开多个 Finder 窗口来回切换，真的很晕。。。</p><p>于是就在想，能不能开发一款带有 Chrome 式地址栏（直接输入地址、拷贝地址。。想想就很爽），并且能把窗口切分成 N 个视图区域，最好还能一直保持工作区状态的小工具？想的差不多了就开干，从设计到 coding 完成，大概花了两周左右的时间，QSpace上线了。</p></blockquote><p><a href="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg"><noscript><img class="alignnone size-full wp-image-6294" src="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1392" height="864" /></noscript><img class="alignnone size-full wp-image-6294 j-lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201392%20864'%3E%3C/svg%3E" data-original="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1392" height="864" data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript><img class="alignnone size-full wp-image-6294 j-lazy" src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" data-original="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1392" height="864" /></noscript></a></p><p dir="ltr" data-test-bidi="">QSpace 有着强大的多视图状态自动保存和恢复功能，这使得她不仅是个文件管理器，更是你的工作小秘书。让你工作的更轻松，工作效率更上一层楼。</p><p dir="ltr" data-test-bidi="">另外，QSpace 还支持一键从终端和编辑器打开文件或文件夹，是开发人员的效率利器！</p><p><a href="https://laod.cn/wp-content/uploads/2019/08/q2.jpg"><noscript><img class="alignnone size-full wp-image-6295" src="https://laod.cn/wp-content/uploads/2019/08/q2.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1390" height="862" /></noscript><img class="alignnone size-full wp-image-6295 j-lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201390%20862'%3E%3C/svg%3E" data-original="https://laod.cn/wp-content/uploads/2019/08/q2.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1390" height="862" data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript><img class="alignnone size-full wp-image-6295 j-lazy" src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" data-original="https://laod.cn/wp-content/uploads/2019/08/q2.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1390" height="862" /></noscript></a></p><p><a href="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg"><noscript><img class="alignnone size-full wp-image-6296" src="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1390" height="860" /></noscript><img class="alignnone size-full wp-image-6296 j-lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201390%20860'%3E%3C/svg%3E" data-original="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1390" height="860" data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript><img class="alignnone size-full wp-image-6296 j-lazy" src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" data-original="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1390" height="860" /></noscript></a></p><h2 dir="ltr">多视图工作区</h2><ol><li dir="ltr">支持 12 种视图布局，一键灵活切换。</li><li dir="ltr">支持创建多个工作区，并可快速切换。</li><li dir="ltr">所有工作区状态自动保存，再次打开即可恢复！</li><li dir="ltr">支持列表视图 2 级缩放，按「 Command + 加号/减号」调整图标大小。</li><li dir="ltr">支持图标视图 4 级缩放，按「 Command + 加号/减号」调整图标大小。</li></ol><p>&nbsp;</p><h2 dir="ltr">文件管理增强</h2><ol><li dir="ltr">分段式可交互地址栏：快速访问各段目录及其子目录，支持前进后退等操作。</li><li dir="ltr">可编辑地址栏：支持拷贝、编辑或直接输入路径等操作。</li><li dir="ltr">快速访问：系统常用目录一键触达，并支持目录书签功能。</li><li dir="ltr">终端快捷键：一键在指定终端打开已选择目录（支持 Terminal、iTerm）</li><li dir="ltr">编辑器快捷键：一键在指定编辑器打开已选择的文件或目录（支持 VSCode、Atom、Sublime）</li><li dir="ltr">支持在任意位置创建新文件、文件夹。</li><li dir="ltr">支持自定义新文件模板，可自定义文件名和文件内容。</li><li dir="ltr">支持工作区视图之间剪切、拷贝、粘贴、拖拽等操作。</li><li dir="ltr">支持工作区视图与其他应用之间拷贝、粘贴、拖拽等操作。</li></ol><p>&nbsp;</p><p><a href="https://laod.cn/wp-content/uploads/2019/08/q5.jpg"><noscript><img class="alignnone size-full wp-image-6298" src="https://laod.cn/wp-content/uploads/2019/08/q5.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1388" height="862" /></noscript><img class="alignnone size-full wp-image-6298 j-lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201388%20862'%3E%3C/svg%3E" data-original="https://laod.cn/wp-content/uploads/2019/08/q5.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1388" height="862" data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript><img class="alignnone size-full wp-image-6298 j-lazy" src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" data-original="https://laod.cn/wp-content/uploads/2019/08/q5.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1388" height="862" /></noscript></a></p><p><a href="https://laod.cn/wp-content/uploads/2019/08/q4.jpg"><noscript><img class="alignnone size-full wp-image-6297" src="https://laod.cn/wp-content/uploads/2019/08/q4.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1388" height="866" /></noscript><img class="alignnone size-full wp-image-6297 j-lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201388%20866'%3E%3C/svg%3E" data-original="https://laod.cn/wp-content/uploads/2019/08/q4.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1388" height="866" data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript><img class="alignnone size-full wp-image-6297 j-lazy" src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" data-original="https://laod.cn/wp-content/uploads/2019/08/q4.jpg" alt="QSpace：一款MacOS多视图 &quot;Finder&quot; 效率工具(多视图文件管理)" width="1388" height="866" /></noscript></a></p><h2 class="version-history__headline">版本记录</h2><h3 class="version-history__item__version-number">1.3.2</h3><p><time class="version-history__item__release-date" datetime="2019-08-27T17:19:31.000Z" data-test-we-datetime="" aria-label="2019年8月28日">2019年8月28日</time></p><div id="ember311" class="we-truncate we-truncate--multi-line we-truncate--interactive ember-view version-history__item__release-notes"><div id="ember313" class="we-clamp ember-view" data-clamp=""><ol><li dir="ltr"> 修正与 High Sierra 的界面兼容性。</li><li dir="ltr">（macOS 10.13 工具栏项无法显示等问题）</li></ol><p dir="ltr" data-test-bidi=""></div></div><h3 class="version-history__item__version-number">1.3.1</h3><p><time class="version-history__item__release-date" datetime="2019-08-26T18:37:27.000Z" data-test-we-datetime="" aria-label="2019年8月27日">2019年8月27日</time></p><div id="ember316" class="we-truncate we-truncate--multi-line we-truncate--interactive ember-view version-history__item__release-notes"><div id="ember318" class="we-clamp ember-view" data-clamp=""><ol><li dir="ltr">修复工作区改名后状态栏显示异常。</li><li dir="ltr">修复连续新建文件夹时导致闪退。</li><li dir="ltr">修复默认工作区无法改名和删除。</li><li dir="ltr">添加设置项：状态栏应用入口开关。</li><li dir="ltr">添加工具栏项：窗口置顶。</li></ol><p dir="ltr" data-test-bidi=""></div></div><h3 class="version-history__item__version-number">1.3</h3><p><time class="version-history__item__release-date" datetime="2019-08-26T00:37:21.000Z" data-test-we-datetime="" aria-label="2019年8月26日">2019年8月26日</time></p><div id="ember321" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">添加系统风格可自定义工具栏。</li><li dir="ltr">添加通过系统状态栏打开工作区列表。</li><li dir="ltr">添加在系统状态栏展示已打开工作区。</li><li dir="ltr">添加触控条操作支持。</li><li dir="ltr">添加右键菜单压缩功能。</li><li dir="ltr">添加 MacVim 编辑器支持。</li><li dir="ltr">添加 Tab 键切换工作区视图焦点。</li><li dir="ltr">添加编辑地址快捷键（Command+L）。</li><li dir="ltr">添加操作项：在选择项目处新建文件和文件夹。</li><li dir="ltr">添加设置项：状态栏展示工作区。</li><li dir="ltr">添加设置项：粘贴和新建文件夹到选择项目处。</li><li dir="ltr">添加设置项：按 ESC 取消当前选择项。</li><li dir="ltr">添加设置项：压缩时忽略 .DS_Store 等临时文件。</li><li dir="ltr">修复分栏视图滚动条显示异常。</li><li dir="ltr">修复拷贝替换时文件误移动的问题。</li><li dir="ltr">取消窗口完全关闭后程序自动退出。</li><li dir="ltr">文件复制成功后自动选中新文件。</li><li dir="ltr">优化工作区列表和工作区名称编辑操作。</li></ol><p dir="ltr" data-test-bidi=""></div><h3 class="version-history__item__version-number">1.2</h3><p><time class="version-history__item__release-date" datetime="2019-08-16T22:27:33.000Z" data-test-we-datetime="" aria-label="2019年8月17日">2019年8月17日</time></p><div id="ember326" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">新增分段式可交互地址栏。</li><li dir="ltr">新增直接删除选择项（快捷键 Command+Option+Delete）。</li><li dir="ltr">新增设置项：默认文件夹置顶。</li><li dir="ltr">新增设置项：粘贴到选中目录。</li><li dir="ltr">新增设置项：音效开关。</li><li dir="ltr">新增视图移动功能。</li><li dir="ltr">新增目录书签和快速访问入口。</li><li dir="ltr">新增系统常用目录快速访问入口。</li><li dir="ltr">优化程序运行速度。</li><li dir="ltr">优化地址栏和其他一些界面显示。</li><li dir="ltr">取消分栏模式下音视频自动播放。</li><li dir="ltr">调整快捷键 Command+O：打开选择项。</li><li dir="ltr">修复系统隐藏文件显示异常。</li><li dir="ltr">修复分栏视图拖拽后文件选择异常。</li></ol><p dir="ltr" data-test-bidi=""></div><h3 class="version-history__item__version-number">1.1.1</h3><p><time class="version-history__item__release-date" datetime="2019-08-08T17:52:01.000Z" data-test-we-datetime="" aria-label="2019年8月9日">2019年8月9日</time></p><div id="ember331" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">新增工作区窗口置顶功能。</li><li dir="ltr">新增「文件夹置顶」排序选项。</li><li dir="ltr">新增独立设置应用的外观。</li><li dir="ltr">启动时打开最后一个关闭的工作区。</li><li dir="ltr">优化文件名称中带数字序号的排序。</li><li dir="ltr">优化一些界面显示。</li><li dir="ltr">修复文件多选时点击无法打开的问题。</li><li dir="ltr">修复新建文件模板改名时的异常。</li><li dir="ltr">修复分栏视图切换后未进入选择的目录。</li><li dir="ltr">修复按 “esc” 未取消文件名编辑的问题。</li></ol><p dir="ltr" data-test-bidi=""></div><h3 class="version-history__item__version-number">1.1</h3><p><time class="version-history__item__release-date" datetime="2019-08-04T18:37:05.000Z" data-test-we-datetime="" aria-label="2019年8月5日">2019年8月5日</time></p><div id="ember336" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">添加分栏视图模式。</li><li dir="ltr">添加新建文件模板，支持自定义文件名称和内容。</li><li dir="ltr">添加替身和超链接目录支持。</li><li dir="ltr">添加按「修改日期」和「添加日期」排序。</li><li dir="ltr">添加右键菜单项：打开方式。</li><li dir="ltr">添加右键菜单项：在终端打开。</li><li dir="ltr">添加右键菜单项：在编辑器打开。</li><li dir="ltr">添加右键菜单项：在访达中查看。</li><li dir="ltr">添加设置项：默认布局。</li><li dir="ltr">添加设置项：默认视图。</li><li dir="ltr">添加设置项：默认排序方式。</li><li dir="ltr">添加设置项：文字显示大小。</li><li dir="ltr">优化文件选择和重命名操作体验。</li><li dir="ltr">修复某些情况下的拖拽操作异常。</li><li dir="ltr">修复某些情况下的文件排序异常。</li></ol><p>&nbsp;</p></div><h3 class="version-history__item__version-number">1.0.3</h3><p><time class="version-history__item__release-date" datetime="2019-07-26T23:08:13.000Z" data-test-we-datetime="" aria-label="2019年7月27日">2019年7月27日</time></p><div id="ember341" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">添加文件「剪切」功能（Command + X，仅支持在 QSpace 内操作）。</li><li dir="ltr">添加列表视图二级缩放（切换显示大小：Command + 加号或减号）。</li><li dir="ltr">添加网格视图四级缩放（切换显示大小：Command + 加号或减号）。</li><li dir="ltr">添加文件删除和拷贝音效。</li><li dir="ltr">添加“使用所选项新建文件夹”右键菜单项。</li><li dir="ltr">支持启动 Jar 程序包。</li><li dir="ltr">支持文件拷贝、移动时的冲突选择。</li><li dir="ltr">优化拷贝黏贴操作。</li><li dir="ltr">同步窗口名称为工作区名称。</li><li dir="ltr">修复空拖拽导致的页面显示异常。</li><li dir="ltr">修复工作区名称偶尔无法编辑的问题。</li></ol></div><h3 class="version-history__item__version-number">1.0.2</h3><p><time class="version-history__item__release-date" datetime="2019-07-20T19:11:43.000Z" data-test-we-datetime="" aria-label="2019年7月21日">2019年7月21日</time></p><div id="ember346" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">添加隐藏文件显示切换（热键：Command+Shift+.）。</li><li dir="ltr">添加打开终端和编辑器自定义选择。</li><li dir="ltr">优化工作区内文件刷新频率。</li><li dir="ltr">优化文件改名操作。</li><li dir="ltr">优化未授权路径访问。</li><li dir="ltr">优化大文件或大量文件操作进度提示。</li><li dir="ltr">修复一些界面异常。</li></ol><p>&nbsp;</p></div><h3 class="version-history__item__version-number">1.0.1</h3><p><time class="version-history__item__release-date" datetime="2019-07-17T20:32:48.000Z" data-test-we-datetime="" aria-label="2019年7月18日">2019年7月18日</time></p><div id="ember351" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"><ol><li dir="ltr">添加剪切粘贴支持（快捷键Command+Option+V）。</li><li dir="ltr">添加回车功能设置项，默认保持和Finder功能一致。</li><li dir="ltr">支持从用户应用文件夹，选择自定义打开终端或编辑器。</li><li dir="ltr">完善地址栏，支持输入省略用户路径前缀的地址。</li><li dir="ltr">完善按种类排序时，文件夹置顶。</li><li dir="ltr">修复工作区内文件更新引起的崩溃。</li><li dir="ltr">修复列表内文件属性更新延迟。</li><li dir="ltr">修复网格视图内新建文件或文件夹时焦点异常。</li><li dir="ltr">修复返回前进导航错乱。</li><li dir="ltr">修复更改文件名时列表刷新引起的焦点异常。</li></ol></div><div class="entry-copyright"><p>原创文章，作者：老D，如若转载，请注明出处：https://laod.cn/tools/qspace.html</p></div></div><div class="entry-tag"><a href="https://laod.cn/tag/mac%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86" rel="tag">mac文件管理</a><a href="https://laod.cn/tag/qspace" rel="tag">QSpace</a><a href="https://laod.cn/tag/%e5%a4%9a%e8%a7%86%e5%9b%be%e6%96%87%e4%bb%b6%e7%ae%a1%e7%90%86" rel="tag">多视图文件管理</a></div><div class="entry-action"><div class="btn-zan" data-id="6293"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up-fill"></use></svg></i> 赞 <span class="entry-action-num">(11)</span></div></div><div class="entry-bar"><div class="entry-bar-inner clearfix"><div class="info text-center"><div class="info-item meta"> <a class="meta-item j-heart" href="javascript:;" data-id="6293"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i> <span class="data">0</span></a> <a class="meta-item" href="#comments"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i> <span class="data">3</span></a></div><div class="info-item share"> <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="6293" data-qrcode="https://laod.cn/tools/qspace.html"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-share"></use></svg></i> 生成海报</a> <a class="meta-item wechat" data-share="wechat" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-wechat"></use></svg></i> </a> <a class="meta-item weibo" data-share="weibo" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-weibo"></use></svg></i> </a> <a class="meta-item qq" data-share="qq" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-qq"></use></svg></i> </a> <a class="meta-item qzone" data-share="qzone" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-qzone"></use></svg></i> </a></div><div class="info-item act"> <a href="javascript:;" id="j-reading"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-article"></use></svg></i></a></div></div></div></div></div><div class="entry-page"><div class="entry-page-prev entry-page-nobg" style="background-image: url();"> <a href="https://laod.cn/hackintosh/bcm94360.html" title="黑苹果 免驱无线网卡+蓝牙 BCM94360 使用体验" rel="prev"> <span>黑苹果 免驱无线网卡+蓝牙 BCM94360 使用体验</span> </a><div class="entry-page-info"> <span class="pull-left"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-arrow-left-double"></use></svg></i> 上一篇</span> <span class="pull-right">2019-08-24 17:41</span></div></div><div class="entry-page-next entry-page-nobg" style="background-image: url();"> <a href="https://laod.cn/black-technology/weixin-guanggao.html" title="老D教你如何关闭微信朋友圈广告" rel="next"> <span>老D教你如何关闭微信朋友圈广告</span> </a><div class="entry-page-info"> <span class="pull-right">下一篇 <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-arrow-right-double"></use></svg></i></span> <span class="pull-left">2019-09-08 22:07</span></div></div></div><div class="entry-related-posts"><h3 class="entry-related-title">相关推荐</h3><ul class="entry-related cols-3 post-loop post-loop-default"><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/ezip-macos.html" title="【eZip】支持不解压进行预览 国人专为 MacOS 而设计的免费压缩软件" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="【eZip】支持不解压进行预览 国人专为 MacOS 而设计的免费压缩软件" data-lazy-src="https://laod.cn/wp-content/uploads/2019/01/e2-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2019/01/e2-480x300.jpg" width="480" height="300" alt="【eZip】支持不解压进行预览 国人专为 MacOS 而设计的免费压缩软件"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/ezip-macos.html" target="_blank" rel="bookmark"> 【eZip】支持不解压进行预览 国人专为 MacOS 而设计的免费压缩软件 </a></h4><div class="item-excerpt"><p>老D以前用的是免费的 The Unarchiver，除了没有预览和压缩功能其他都很完美，今天偶然看到一款国人专门为MacOS写的免费压缩软件：eZip &nbsp; 完美兼容 Mo&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2019-01-30</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>8.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/ezip-macos.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>4</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/chrome-80%e6%ad%a3%e5%bc%8f%e5%8f%91%e5%b8%83%e4%b8%8b%e8%bd%bd%ef%bc%9a%e5%bc%ba%e5%8c%96https-%e7%a6%81%e7%94%a8ftp-%e9%80%9a%e7%9f%a5%e6%b6%88%e6%81%af%e6%9b%b4%e9%9d%99%e9%bb%98.html" title="Chrome 80正式发布下载：强化HTTPS 禁用FTP 通知消息更静默" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Chrome 80正式发布下载：强化HTTPS 禁用FTP 通知消息更静默" data-lazy-src="https://laod.cn/wp-content/uploads/2017/04/Google-Chrome-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2017/04/Google-Chrome-480x300.jpg" width="480" height="300" alt="Chrome 80正式发布下载：强化HTTPS 禁用FTP 通知消息更静默"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/chrome-80%e6%ad%a3%e5%bc%8f%e5%8f%91%e5%b8%83%e4%b8%8b%e8%bd%bd%ef%bc%9a%e5%bc%ba%e5%8c%96https-%e7%a6%81%e7%94%a8ftp-%e9%80%9a%e7%9f%a5%e6%b6%88%e6%81%af%e6%9b%b4%e9%9d%99%e9%bb%98.html" target="_blank" rel="bookmark"> Chrome 80正式发布下载：强化HTTPS 禁用FTP 通知消息更静默 </a></h4><div class="item-excerpt"><p>正如此前预告，谷歌最近发布了Chrome 80正式版，Windows、macOS、Linux、Android、iOS等全平台均可下载安装或者在浏览器内检查更新。 Chrome 80&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2020-02-06</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>9.2K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>5</span><a class="item-meta-li comments" href="https://laod.cn/tools/chrome-80%e6%ad%a3%e5%bc%8f%e5%8f%91%e5%b8%83%e4%b8%8b%e8%bd%bd%ef%bc%9a%e5%bc%ba%e5%8c%96https-%e7%a6%81%e7%94%a8ftp-%e9%80%9a%e7%9f%a5%e6%b6%88%e6%81%af%e6%9b%b4%e9%9d%99%e9%bb%98.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item item-no-thumb"><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/pdf2word-hanhua.html" target="_blank" rel="bookmark"> PDF转Word软件：PDF2Word 汉化免费版 </a></h4><div class="item-excerpt"><p>PDF2Word能够从PDF格式文档中提取文字、图形和其它内容存放入Word格式文档中，因此你就能重复利用你的PDF文档内容，在Word中再编辑文字、排版及重整布局；并且它是一个独&#8230;</p></div><div class="item-meta"> <a class="item-meta-li" href="https://laod.cn/tools" target="_blank">工具软件</a> <span class="item-meta-li date">2018-06-06</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>11.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>3</span><a class="item-meta-li comments" href="https://laod.cn/tools/pdf2word-hanhua.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>7</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/beroo.html" title="BeRoot 一款Windows系统下不错的提权工具" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="BeRoot 一款Windows系统下不错的提权工具" data-lazy-src="https://laod.cn/wp-content/uploads/2017/04/BeRoo-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2017/04/BeRoo-480x300.png" width="480" height="300" alt="BeRoot 一款Windows系统下不错的提权工具"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/beroo.html" target="_blank" rel="bookmark"> BeRoot 一款Windows系统下不错的提权工具 </a></h4><div class="item-excerpt"><p>工具简介 BeRoot是一款Post-Exploitation工具，也就是在黑客拿到目标主机的Shell之后所要用到的一种东西。BeRoot可以帮助我们检查目标Windows系统中&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2017-04-26</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>23.5K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/beroo.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>3</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/snipaste.html" title="截图+贴图 让 Snipaste 帮你提高工作效率" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="截图+贴图 让 Snipaste 帮你提高工作效率" data-lazy-src="https://laod.cn/wp-content/uploads/2016/10/snipaste-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2016/10/snipaste-480x300.jpg" width="480" height="300" alt="截图+贴图 让 Snipaste 帮你提高工作效率"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/snipaste.html" target="_blank" rel="bookmark"> 截图+贴图 让 Snipaste 帮你提高工作效率 </a></h4><div class="item-excerpt"><p>不用每次都开QQ了。。。很实用。。。 Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！ 下载并打开 Snipaste，按下 F1 来开始截图， 选择“复&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-10-21</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>6.7K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/snipaste.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>16</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/xiazai-99.html" title="下载小电影总卡在99.9%的原因，终于找到了" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="下载小电影总卡在99.9%的原因，终于找到了" data-lazy-src="https://laod.cn/wp-content/uploads/2020/03/D1-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2020/03/D1-480x300.png" width="480" height="300" alt="下载小电影总卡在99.9%的原因，终于找到了"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/xiazai-99.html" target="_blank" rel="bookmark"> 下载小电影总卡在99.9%的原因，终于找到了 </a></h4><div class="item-excerpt"><p>自从学会上网冲浪后，看电影、美剧都是下载回来看的，最最最讨厌的一个数字就是：99.9%。 这是一个充满魔力的数字，曾让我狂躁、焦虑，甚至激动得想砸键盘锤电脑扔手机。 &nbsp; &#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2020-03-18</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>28.4K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>26</span><a class="item-meta-li comments" href="https://laod.cn/tools/xiazai-99.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>5</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/mojo-webqq.html" title="IT男装逼利器：如何像黑客一样聊天 Mojo-Webqq" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="IT男装逼利器：如何像黑客一样聊天 Mojo-Webqq" data-lazy-src="https://laod.cn/wp-content/uploads/2017/11/How_to_chat_like_a_hacker-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2017/11/How_to_chat_like_a_hacker-480x300.jpg" width="480" height="300" alt="IT男装逼利器：如何像黑客一样聊天 Mojo-Webqq"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/mojo-webqq.html" target="_blank" rel="bookmark"> IT男装逼利器：如何像黑客一样聊天 Mojo-Webqq </a></h4><div class="item-excerpt"><p>电影里的黑客们聊天不想我们生活中的一样，用QQ、微信的客户端，都是通过命令行来进行聊天交流的，大概是为了提升逼格吧。 今天发现一个有趣的项目：使用mojoqq来实现命令行QQ 目标&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2017-11-29</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>45.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/mojo-webqq.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>37</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/qqplayer_setup_39_934.html" title="最良心腾讯软件！QQ影音再次更新" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="最良心腾讯软件！QQ影音再次更新" data-lazy-src="https://laod.cn/wp-content/uploads/2016/01/QQPlayer-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2016/01/QQPlayer-480x300.jpg" width="480" height="300" alt="最良心腾讯软件！QQ影音再次更新"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/qqplayer_setup_39_934.html" target="_blank" rel="bookmark"> 最良心腾讯软件！QQ影音再次更新 </a></h4><div class="item-excerpt"><p>QQ影音是由腾讯推出的一款支持任何格式影片和音乐文件的本地播放器。因为没有广告，被公认为腾讯最良心的软件。今天，它又迎来小幅更新，最新版本: 3.9.934，这是本月第二次更新了。&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-01-17</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>6.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/qqplayer_setup_39_934.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>31</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/flarum.html" title="Flarum论坛程序 简洁美观轻量级" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Flarum论坛程序 简洁美观轻量级" data-lazy-src="https://laod.cn/wp-content/uploads/2018/03/flarum-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2018/03/flarum-480x300.png" width="480" height="300" alt="Flarum论坛程序 简洁美观轻量级"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/flarum.html" target="_blank" rel="bookmark"> Flarum论坛程序 简洁美观轻量级 </a></h4><div class="item-excerpt"><p>在国内我们有两个比较熟悉的论坛程序Discuz!跟phpwind。嗯，差点忘了，还有一个Xiuno BBS。 今天马丁（@martinwang2002）给大家介绍一款网盘程序：Fl&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-03-12</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>32.1K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>2</span><a class="item-meta-li comments" href="https://laod.cn/tools/flarum.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>4</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/firefox-flash.html" title="Firefox专用Flash插件下载" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Firefox专用Flash插件下载" data-lazy-src="https://laod.cn/wp-content/uploads/2016/12/Flash-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2016/12/Flash-480x300.jpg" width="480" height="300" alt="Firefox专用Flash插件下载"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/firefox-flash.html" target="_blank" rel="bookmark"> Firefox专用Flash插件下载 </a></h4><div class="item-excerpt"><p>适用平台：Firefox 插件版本：23.0.0.207 本版Flash插件基于官方原版提取，自带mms.cfg文件以达到去沙盒的效果，分为32位和64位版本。 使用方法：根据你F&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-12-19</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>9.0K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/firefox-flash.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>7</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li></ul></div><div id="comments" class="entry-comments"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/tools/qspace.html#respond" style="display:none;"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-close"></use></svg></i></a></small></h3><div class="comment-form"><div class="comment-must-login">请登录后评论...</div><div class="form-submit"><div class="form-submit-text pull-left"><a href="https://laod.cn/login?modal-type=login">登录</a>后才能评论</div> <button name="submit" type="submit" id="must-submit" class="btn btn-primary btn-xs submit">提交</button></div></div></div><h3 class="comments-title"> 评论列表（3条）</h3><ul class="comments-list"><li class="comment byuser even thread-even depth-1" id="comment-48363"><div id="div-comment-48363" class="comment-inner"><div class="comment-author vcard"> <img alt='kurtwong23' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/ae5ede07f6820c5c6e8edda5d4398251?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/ae5ede07f6820c5c6e8edda5d4398251?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='kurtwong23' src='//cravatar.cn/avatar/ae5ede07f6820c5c6e8edda5d4398251?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/ae5ede07f6820c5c6e8edda5d4398251?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname"><a class="j-user-card" data-user="59162" href="https://laod.cn/profile/59162" target="_blank">kurtwong23</a> <span class="comment-time">2019-09-17 21:53</span></div><div class="comment-text"><p>这个好东西，多视图管理</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li><li class="comment byuser odd alt thread-odd thread-alt depth-1" id="comment-48315"><div id="div-comment-48315" class="comment-inner"><div class="comment-author vcard"> <img alt='ljp6772011' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/81f7b83e0e0df1c8a322e0c32174a27a?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/81f7b83e0e0df1c8a322e0c32174a27a?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='ljp6772011' src='//cravatar.cn/avatar/81f7b83e0e0df1c8a322e0c32174a27a?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/81f7b83e0e0df1c8a322e0c32174a27a?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname"><a class="j-user-card" data-user="58960" href="https://laod.cn/profile/58960" target="_blank">ljp6772011</a> <span class="comment-time">2019-08-28 11:12</span></div><div class="comment-text"><p>非常好用 感谢laod 幸苦了</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li><li class="comment byuser even thread-even depth-1" id="comment-48313"><div id="div-comment-48313" class="comment-inner"><div class="comment-author vcard"> <img alt='RMGTFXX' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/819e77ca59905aafc4a0773e293cc0d5?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/819e77ca59905aafc4a0773e293cc0d5?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='RMGTFXX' src='//cravatar.cn/avatar/819e77ca59905aafc4a0773e293cc0d5?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/819e77ca59905aafc4a0773e293cc0d5?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname"><a class="j-user-card" data-user="380" href="https://laod.cn/profile/380" target="_blank">RMGTFXX</a> <span class="comment-time">2019-08-28 07:37</span></div><div class="comment-text"><p>这个好东西，自由的多视图管理！</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li></ul><ul class="pagination"></ul></div></article></main><aside class="sidebar"><div id="wpcom-lastest-news-2" class="widget widget_lastest_news"><ul><li><a href="https://laod.cn/journal/kuaizip-hehe.html" title="对某知名压缩软件说：呵呵">对某知名压缩软件说：呵呵</a></li><li><a href="https://laod.cn/dns/public-dns.html" title="细数免费公共DNS服务器IP地址大全">细数免费公共DNS服务器IP地址大全</a></li><li><a href="https://laod.cn/news/samsung-galaxy-risk-vulnerabilities.html" title="三星Galaxy手机输入法曝高危漏洞，攻击者可监控用户摄像头、短信以及安装恶意程序">三星Galaxy手机输入法曝高危漏洞，攻击者可监控用户摄像头、短信以及安装恶意程序</a></li><li><a href="https://laod.cn/ssl/google-not-secure.html" title="Google Chrome 正式向所有不启用HTTPS网站开炮">Google Chrome 正式向所有不启用HTTPS网站开炮</a></li><li><a href="https://laod.cn/news/google-moonshot-4-billion.html" title="Google这些疯狂的想法，让公司亏损高达40亿美元">Google这些疯狂的想法，让公司亏损高达40亿美元</a></li><li><a href="https://laod.cn/journal/hanging-wire-top5.html" title="告诉吊丝们，最不值得为女生做的几件事TOP5">告诉吊丝们，最不值得为女生做的几件事TOP5</a></li></ul></div><div id="categories-4" class="widget widget_categories"><h3 class="widget-title"><span>分类</span></h3><ul><li class="cat-item cat-item-1129"><a href="https://laod.cn/dns" title="公共DNS、DNS推荐、DNS测试、DNS评测、纯净DNS、科学DNS">DNS</a></li><li class="cat-item cat-item-150"><a href="https://laod.cn/hosts" title="最新hosts,hosts下载,hosts文件,hosts修改,hosts文件在哪里">hosts</a></li><li class="cat-item cat-item-1197"><a href="https://laod.cn/ssl" title="SSL、SSL证书、HTTPS、TLS 1.3、HTTP/2等... ">SSL</a></li><li class="cat-item cat-item-6"><a href="https://laod.cn/news" title="安全界、科技界的新闻记录，各种逆天科技、火星科技、黑科技">业界资讯</a></li><li class="cat-item cat-item-99"><a href="https://laod.cn/code-audit" title="代码审计 0day漏洞 漏洞挖掘...">代码审计</a></li><li class="cat-item cat-item-1"><a href="https://laod.cn/free" title="一切精品的免费资源，空间、域名、网盘、主题、云等各种免费资源。">免费资源</a></li><li class="cat-item cat-item-3"><a href="https://laod.cn/tools" title="收集分享破解各种黑科技、火星科技、实用好用的、新奇有趣的工具软件。">工具软件</a></li><li class="cat-item cat-item-4"><a href="https://laod.cn/journal" title="心情随笔，谱写记录生活中的一些琐事。">心情琐事</a></li><li class="cat-item cat-item-9"><a href="https://laod.cn/mito" title="摄影美图，各种唯美图、创意图、壁纸">摄影|美图</a></li><li class="cat-item cat-item-1417"><a href="https://laod.cn/chajian" title="Chrome好用的插件,Chrome插件，Chrome扩展，Firefox插件，Firefox扩展">浏览器插件</a></li><li class="cat-item cat-item-33"><a href="https://laod.cn/movie" title="好看的美剧,美剧下载,2017美剧,好看的电影">电影·美剧</a></li><li class="cat-item cat-item-11"><a href="https://laod.cn/life" title="美文、唯美句子、人生、日记">直视人生</a></li><li class="cat-item cat-item-5"><a href="https://laod.cn/security" title="网络安全，信息安全，网站安全，黑客，白帽子，黑帽子">网络安全</a></li><li class="cat-item cat-item-8"><a href="https://laod.cn/page" title="网页设计，网页设置，网页代码">网页|代码</a></li><li class="cat-item cat-item-93"><a href="https://laod.cn/black-technology" title="远超越现今人类科技或知识所能及的范畴，缺乏科学根据并且违反自然原理的科学技术或者产品。">黑科技</a></li><li class="cat-item cat-item-1578"><a href="https://laod.cn/hackintosh" title="分享黑苹果完美配置清单，黑苹果驱动、软件等...">黑苹果</a></li></ul></div></aside></div></div><footer class="footer"><div class="container"><div class="clearfix"><div class="footer-col footer-col-copy"><ul class="footer-nav hidden-xs"><li id="menu-item-6954" class="menu-item menu-item-6954"><a href="https://laod.cn/disclaimer">免责声明</a></li><li id="menu-item-6955" class="menu-item menu-item-6955"><a href="https://laod.cn/about">关于本站</a></li></ul><div class="copyright"><p>Copyright © 2021 上林县月夕花朝网络科技有限公司 版权所有 <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">桂ICP备18011504号-6</a> Powered by <a href="https://www.luyouwang.net" target="_blank" rel="noopener">路由网</a></p></div></div><div class="footer-col footer-col-sns"><div class="footer-sns"></div></div></div></div></footer><div class="action action-style-0 action-color-0 action-pos-0" style="bottom:20%;"><div class="action-item j-share"> <i class="wpcom-icon wi action-item-icon"><svg aria-hidden="true"><use xlink:href="#wi-share"></use></svg></i></div><div class="action-item gotop j-top"> <i class="wpcom-icon wi action-item-icon"><svg aria-hidden="true"><use xlink:href="#wi-arrow-up-2"></use></svg></i></div></div> <script type='text/javascript' id='main-js-extra'>/* <![CDATA[ */ var _wpcom_js = {"webp":"","ajaxurl":"https:\/\/laod.cn\/wp-admin\/admin-ajax.php","theme_url":"https:\/\/laod.cn\/wp-content\/themes\/justnews","slide_speed":"5000","static_cdn":"0","is_admin":"0","lightbox":"1","post_id":"6293","user_card_height":"356","poster":{"notice":"\u8bf7\u957f\u6309\u4fdd\u5b58\u56fe\u7247\uff0c\u5c06\u5185\u5bb9\u5206\u4eab\u7ed9\u66f4\u591a\u597d\u53cb","generating":"\u6b63\u5728\u751f\u6210\u6d77\u62a5\u56fe\u7247...","failed":"\u6d77\u62a5\u56fe\u7247\u751f\u6210\u5931\u8d25"},"video_height":"482","fixed_sidebar":"1","js_lang":{"page_loaded":"\u5df2\u7ecf\u5230\u5e95\u4e86","no_content":"\u6682\u65e0\u5185\u5bb9","load_failed":"\u52a0\u8f7d\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff01","login_desc":"\u60a8\u8fd8\u672a\u767b\u5f55\uff0c\u8bf7\u767b\u5f55\u540e\u518d\u8fdb\u884c\u76f8\u5173\u64cd\u4f5c\uff01","login_title":"\u8bf7\u767b\u5f55","login_btn":"\u767b\u5f55","reg_btn":"\u6ce8\u518c","copy_done":"\u590d\u5236\u6210\u529f\uff01","copy_fail":"\u6d4f\u89c8\u5668\u6682\u4e0d\u652f\u6301\u62f7\u8d1d\u529f\u80fd"},"login_url":"https:\/\/laod.cn\/login?modal-type=login","register_url":"https:\/\/laod.cn\/register?modal-type=register","captcha_label":"\u70b9\u51fb\u8fdb\u884c\u4eba\u673a\u9a8c\u8bc1","captcha_verified":"\u9a8c\u8bc1\u6210\u529f","errors":{"require":"\u4e0d\u80fd\u4e3a\u7a7a","email":"\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u7535\u5b50\u90ae\u7bb1","pls_enter":"\u8bf7\u8f93\u5165","password":"\u5bc6\u7801\u5fc5\u987b\u4e3a6~32\u4e2a\u5b57\u7b26","passcheck":"\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u4e00\u81f4","phone":"\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u624b\u673a\u53f7\u7801","terms":"\u8bf7\u9605\u8bfb\u5e76\u540c\u610f\u6761\u6b3e","sms_code":"\u9a8c\u8bc1\u7801\u9519\u8bef","captcha_verify":"\u8bf7\u70b9\u51fb\u6309\u94ae\u8fdb\u884c\u9a8c\u8bc1","captcha_fail":"\u70b9\u51fb\u9a8c\u8bc1\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5","nonce":"\u968f\u673a\u6570\u6821\u9a8c\u5931\u8d25","req_error":"\u8bf7\u6c42\u5931\u8d25"},"follow_btn":"<i class=\"wpcom-icon wi\"><svg aria-hidden=\"true\"><use xlink:href=\"#wi-add\"><\/use><\/svg><\/i>\u5173\u6ce8","followed_btn":"\u5df2\u5173\u6ce8","user_card":"1"}; /* ]]> */</script> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/js/main.js?ver=6.8.2' id='main-js'></script> <script type='text/javascript' src='https://laod.cn/wp-includes/js/comment-reply.min.js?ver=5.9.1' id='comment-reply-js'></script> <script type='text/javascript' id='wp-postviews-cache-js-extra'>/* <![CDATA[ */ var viewsCacheL10n = {"admin_ajax_url":"https:\/\/laod.cn\/wp-admin\/admin-ajax.php","post_id":"6293"}; /* ]]> */</script> <script type='text/javascript' src='https://laod.cn/wp-content/plugins/wp-postviews/postviews-cache.js?ver=1.68' id='wp-postviews-cache-js'></script> <script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?677efe1890b1822233366a5d48b479a5";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();</script> <script type="application/ld+json">{
-            "@context": {
-                "@context": {
-                    "images": {
-                      "@id": "http://schema.org/image",
-                      "@type": "@id",
-                      "@container": "@list"
-                    },
-                    "title": "http://schema.org/headline",
-                    "description": "http://schema.org/description",
-                    "pubDate": "http://schema.org/DateTime"
-                }
-            },
-            "@id": "https://laod.cn/tools/qspace.html",
-            "title": "QSpace：一款MacOS多视图 &#8220;Finder&#8221; 效率工具(多视图文件管理)",
-            "images": ["https://laod.cn/wp-content/uploads/2019/08/Q1.jpg","https://laod.cn/wp-content/uploads/2019/08/q2.jpg","https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg"],
-            "description": "QSpace 是一款简洁高效的多视图文件管理器。她有着和系统访达相一致的操作习惯和界面呈现，同时还支持更多灵活而实用的特色功能。有了她，让你轻松摆脱多窗口来回切换的繁琐，和拖拽时找...",
-            "pubDate": "2019-08-28T01:48:23",
-            "upDate": "2019-10-11T11:55:33"
-        }</script> <script>(function ($) {$(document).ready(function () {setup_share(1);})})(jQuery);</script> <script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){return}
-if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){return}
-images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
-if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://laod.cn/wp-content/plugins/wp-rocket/assets/js/lazyload/12.0/lazyload.min.js"></script></body></html>
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1646532211 -->
+<h1 id="title">QSpace：一款MacOS多视图 “Finder” 效率工具(多视图文件管理)</h1>
+<time id="date" datetime="2019-08-28T01:48:23+08:00">2019-08-28 01:48</time>
+<section id="content">
+    <p dir="ltr" data-test-bidi="">
+        QSpace
+        是一款简洁高效的多视图文件管理器。她有着和系统访达相一致的操作习惯和界面呈现，同时还支持更多灵活而实用的特色功能。有了她，让你轻松摆脱多窗口来回切换的繁琐，和拖拽时找不准目标的尴尬！
+    </p>
+    <p dir="ltr" style="text-align: center" data-test-bidi="">
+        <span style="color: #993300">（目前这款APP限时优惠，仅需1块钱）</span>
+    </p>
+    <blockquote>
+        <p><strong>来自作者的话：</strong></p>
+        <p>
+            用 MacOS 做开发已经六七年了，真的很爽。体验上比 Linux 稳定，UI
+            更完善，还兼容强大的 Terminal。比 Windows 颜值高很多，与 nix
+            的兼容互通性很强（当然 Linux 有自由而丰富的社区资源，Windows
+            有完备而坚实的应用生态）。虽然不同系统都各有所长，但就开发体验而言
+            MacOS 略胜一筹（毕竟能自如地进行移动端和前后端开发）。
+        </p>
+        <p>
+            一直以来，MacOS 的 Finder
+            和终端直接的切换让我很手残，没有便捷的路径复制，一直
+            cdcdcd。。。最后，我只能打开终端，然后 cd 拖过去的文件夹 -_-|||
+            而且有时候，一个项目会涉及到文档、设计稿、资源、代码等多个目录，每次都重复打开多个
+            Finder 窗口来回切换，真的很晕。。。
+        </p>
+        <p>
+            于是就在想，能不能开发一款带有 Chrome
+            式地址栏（直接输入地址、拷贝地址。。想想就很爽），并且能把窗口切分成
+            N
+            个视图区域，最好还能一直保持工作区状态的小工具？想的差不多了就开干，从设计到
+            coding 完成，大概花了两周左右的时间，QSpace上线了。
+        </p>
+    </blockquote>
+    <p>
+        <a href="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg"
+            ><noscript
+                ><img
+                    class="alignnone size-full wp-image-6294"
+                    src="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1392"
+                    height="864" /></noscript
+            ><img
+                class="alignnone size-full wp-image-6294 j-lazy"
+                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201392%20864'%3E%3C/svg%3E"
+                data-original="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg"
+                alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                width="1392"
+                height="864"
+                data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript
+                ><img
+                    class="alignnone size-full wp-image-6294 j-lazy"
+                    src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png"
+                    data-original="https://laod.cn/wp-content/uploads/2019/08/Q1.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1392"
+                    height="864" /></noscript
+        ></a>
+    </p>
+    <p dir="ltr" data-test-bidi="">
+        QSpace
+        有着强大的多视图状态自动保存和恢复功能，这使得她不仅是个文件管理器，更是你的工作小秘书。让你工作的更轻松，工作效率更上一层楼。
+    </p>
+    <p dir="ltr" data-test-bidi="">
+        另外，QSpace
+        还支持一键从终端和编辑器打开文件或文件夹，是开发人员的效率利器！
+    </p>
+    <p>
+        <a href="https://laod.cn/wp-content/uploads/2019/08/q2.jpg"
+            ><noscript
+                ><img
+                    class="alignnone size-full wp-image-6295"
+                    src="https://laod.cn/wp-content/uploads/2019/08/q2.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1390"
+                    height="862" /></noscript
+            ><img
+                class="alignnone size-full wp-image-6295 j-lazy"
+                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201390%20862'%3E%3C/svg%3E"
+                data-original="https://laod.cn/wp-content/uploads/2019/08/q2.jpg"
+                alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                width="1390"
+                height="862"
+                data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript
+                ><img
+                    class="alignnone size-full wp-image-6295 j-lazy"
+                    src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png"
+                    data-original="https://laod.cn/wp-content/uploads/2019/08/q2.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1390"
+                    height="862" /></noscript
+        ></a>
+    </p>
+    <p>
+        <a href="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg"
+            ><noscript
+                ><img
+                    class="alignnone size-full wp-image-6296"
+                    src="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1390"
+                    height="860" /></noscript
+            ><img
+                class="alignnone size-full wp-image-6296 j-lazy"
+                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201390%20860'%3E%3C/svg%3E"
+                data-original="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg"
+                alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                width="1390"
+                height="860"
+                data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript
+                ><img
+                    class="alignnone size-full wp-image-6296 j-lazy"
+                    src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png"
+                    data-original="https://laod.cn/wp-content/uploads/2019/08/q3-1.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1390"
+                    height="860" /></noscript
+        ></a>
+    </p>
+    <h2 dir="ltr">多视图工作区</h2>
+    <ol>
+        <li dir="ltr">支持 12 种视图布局，一键灵活切换。</li>
+        <li dir="ltr">支持创建多个工作区，并可快速切换。</li>
+        <li dir="ltr">所有工作区状态自动保存，再次打开即可恢复！</li>
+        <li dir="ltr">
+            支持列表视图 2 级缩放，按「 Command + 加号/减号」调整图标大小。
+        </li>
+        <li dir="ltr">
+            支持图标视图 4 级缩放，按「 Command + 加号/减号」调整图标大小。
+        </li>
+    </ol>
+    <p>&nbsp;</p>
+    <h2 dir="ltr">文件管理增强</h2>
+    <ol>
+        <li dir="ltr">
+            分段式可交互地址栏：快速访问各段目录及其子目录，支持前进后退等操作。
+        </li>
+        <li dir="ltr">可编辑地址栏：支持拷贝、编辑或直接输入路径等操作。</li>
+        <li dir="ltr">快速访问：系统常用目录一键触达，并支持目录书签功能。</li>
+        <li dir="ltr">
+            终端快捷键：一键在指定终端打开已选择目录（支持 Terminal、iTerm）
+        </li>
+        <li dir="ltr">
+            编辑器快捷键：一键在指定编辑器打开已选择的文件或目录（支持
+            VSCode、Atom、Sublime）
+        </li>
+        <li dir="ltr">支持在任意位置创建新文件、文件夹。</li>
+        <li dir="ltr">支持自定义新文件模板，可自定义文件名和文件内容。</li>
+        <li dir="ltr">支持工作区视图之间剪切、拷贝、粘贴、拖拽等操作。</li>
+        <li dir="ltr">支持工作区视图与其他应用之间拷贝、粘贴、拖拽等操作。</li>
+    </ol>
+    <p>&nbsp;</p>
+    <p>
+        <a href="https://laod.cn/wp-content/uploads/2019/08/q5.jpg"
+            ><noscript
+                ><img
+                    class="alignnone size-full wp-image-6298"
+                    src="https://laod.cn/wp-content/uploads/2019/08/q5.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1388"
+                    height="862" /></noscript
+            ><img
+                class="alignnone size-full wp-image-6298 j-lazy"
+                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201388%20862'%3E%3C/svg%3E"
+                data-original="https://laod.cn/wp-content/uploads/2019/08/q5.jpg"
+                alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                width="1388"
+                height="862"
+                data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript
+                ><img
+                    class="alignnone size-full wp-image-6298 j-lazy"
+                    src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png"
+                    data-original="https://laod.cn/wp-content/uploads/2019/08/q5.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1388"
+                    height="862" /></noscript
+        ></a>
+    </p>
+    <p>
+        <a href="https://laod.cn/wp-content/uploads/2019/08/q4.jpg"
+            ><noscript
+                ><img
+                    class="alignnone size-full wp-image-6297"
+                    src="https://laod.cn/wp-content/uploads/2019/08/q4.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1388"
+                    height="866" /></noscript
+            ><img
+                class="alignnone size-full wp-image-6297 j-lazy"
+                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201388%20866'%3E%3C/svg%3E"
+                data-original="https://laod.cn/wp-content/uploads/2019/08/q4.jpg"
+                alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                width="1388"
+                height="866"
+                data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript
+                ><img
+                    class="alignnone size-full wp-image-6297 j-lazy"
+                    src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png"
+                    data-original="https://laod.cn/wp-content/uploads/2019/08/q4.jpg"
+                    alt='QSpace：一款MacOS多视图 "Finder" 效率工具(多视图文件管理)'
+                    width="1388"
+                    height="866" /></noscript
+        ></a>
+    </p>
+    <h2 class="version-history__headline">版本记录</h2>
+    <h3 class="version-history__item__version-number">1.3.2</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-08-27T17:19:31.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年8月28日"
+            >2019年8月28日</time
+        >
+    </p>
+    <div
+        id="ember311"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive ember-view version-history__item__release-notes"
+    >
+        <div id="ember313" class="we-clamp ember-view" data-clamp="">
+            <ol>
+                <li dir="ltr">&nbsp;修正与 High Sierra 的界面兼容性。</li>
+                <li dir="ltr">（macOS 10.13 工具栏项无法显示等问题）</li>
+            </ol>
+            <p dir="ltr" data-test-bidi=""></p>
+        </div>
+    </div>
+    <h3 class="version-history__item__version-number">1.3.1</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-08-26T18:37:27.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年8月27日"
+            >2019年8月27日</time
+        >
+    </p>
+    <div
+        id="ember316"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive ember-view version-history__item__release-notes"
+    >
+        <div id="ember318" class="we-clamp ember-view" data-clamp="">
+            <ol>
+                <li dir="ltr">修复工作区改名后状态栏显示异常。</li>
+                <li dir="ltr">修复连续新建文件夹时导致闪退。</li>
+                <li dir="ltr">修复默认工作区无法改名和删除。</li>
+                <li dir="ltr">添加设置项：状态栏应用入口开关。</li>
+                <li dir="ltr">添加工具栏项：窗口置顶。</li>
+            </ol>
+            <p dir="ltr" data-test-bidi=""></p>
+        </div>
+    </div>
+    <h3 class="version-history__item__version-number">1.3</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-08-26T00:37:21.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年8月26日"
+            >2019年8月26日</time
+        >
+    </p>
+    <div
+        id="ember321"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">添加系统风格可自定义工具栏。</li>
+            <li dir="ltr">添加通过系统状态栏打开工作区列表。</li>
+            <li dir="ltr">添加在系统状态栏展示已打开工作区。</li>
+            <li dir="ltr">添加触控条操作支持。</li>
+            <li dir="ltr">添加右键菜单压缩功能。</li>
+            <li dir="ltr">添加 MacVim 编辑器支持。</li>
+            <li dir="ltr">添加 Tab 键切换工作区视图焦点。</li>
+            <li dir="ltr">添加编辑地址快捷键（Command+L）。</li>
+            <li dir="ltr">添加操作项：在选择项目处新建文件和文件夹。</li>
+            <li dir="ltr">添加设置项：状态栏展示工作区。</li>
+            <li dir="ltr">添加设置项：粘贴和新建文件夹到选择项目处。</li>
+            <li dir="ltr">添加设置项：按 ESC 取消当前选择项。</li>
+            <li dir="ltr">添加设置项：压缩时忽略 .DS_Store 等临时文件。</li>
+            <li dir="ltr">修复分栏视图滚动条显示异常。</li>
+            <li dir="ltr">修复拷贝替换时文件误移动的问题。</li>
+            <li dir="ltr">取消窗口完全关闭后程序自动退出。</li>
+            <li dir="ltr">文件复制成功后自动选中新文件。</li>
+            <li dir="ltr">优化工作区列表和工作区名称编辑操作。</li>
+        </ol>
+        <p dir="ltr" data-test-bidi=""></p>
+    </div>
+    <h3 class="version-history__item__version-number">1.2</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-08-16T22:27:33.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年8月17日"
+            >2019年8月17日</time
+        >
+    </p>
+    <div
+        id="ember326"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">新增分段式可交互地址栏。</li>
+            <li dir="ltr">
+                新增直接删除选择项（快捷键 Command+Option+Delete）。
+            </li>
+            <li dir="ltr">新增设置项：默认文件夹置顶。</li>
+            <li dir="ltr">新增设置项：粘贴到选中目录。</li>
+            <li dir="ltr">新增设置项：音效开关。</li>
+            <li dir="ltr">新增视图移动功能。</li>
+            <li dir="ltr">新增目录书签和快速访问入口。</li>
+            <li dir="ltr">新增系统常用目录快速访问入口。</li>
+            <li dir="ltr">优化程序运行速度。</li>
+            <li dir="ltr">优化地址栏和其他一些界面显示。</li>
+            <li dir="ltr">取消分栏模式下音视频自动播放。</li>
+            <li dir="ltr">调整快捷键 Command+O：打开选择项。</li>
+            <li dir="ltr">修复系统隐藏文件显示异常。</li>
+            <li dir="ltr">修复分栏视图拖拽后文件选择异常。</li>
+        </ol>
+        <p dir="ltr" data-test-bidi=""></p>
+    </div>
+    <h3 class="version-history__item__version-number">1.1.1</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-08-08T17:52:01.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年8月9日"
+            >2019年8月9日</time
+        >
+    </p>
+    <div
+        id="ember331"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">新增工作区窗口置顶功能。</li>
+            <li dir="ltr">新增「文件夹置顶」排序选项。</li>
+            <li dir="ltr">新增独立设置应用的外观。</li>
+            <li dir="ltr">启动时打开最后一个关闭的工作区。</li>
+            <li dir="ltr">优化文件名称中带数字序号的排序。</li>
+            <li dir="ltr">优化一些界面显示。</li>
+            <li dir="ltr">修复文件多选时点击无法打开的问题。</li>
+            <li dir="ltr">修复新建文件模板改名时的异常。</li>
+            <li dir="ltr">修复分栏视图切换后未进入选择的目录。</li>
+            <li dir="ltr">修复按 “esc” 未取消文件名编辑的问题。</li>
+        </ol>
+        <p dir="ltr" data-test-bidi=""></p>
+    </div>
+    <h3 class="version-history__item__version-number">1.1</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-08-04T18:37:05.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年8月5日"
+            >2019年8月5日</time
+        >
+    </p>
+    <div
+        id="ember336"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">添加分栏视图模式。</li>
+            <li dir="ltr">添加新建文件模板，支持自定义文件名称和内容。</li>
+            <li dir="ltr">添加替身和超链接目录支持。</li>
+            <li dir="ltr">添加按「修改日期」和「添加日期」排序。</li>
+            <li dir="ltr">添加右键菜单项：打开方式。</li>
+            <li dir="ltr">添加右键菜单项：在终端打开。</li>
+            <li dir="ltr">添加右键菜单项：在编辑器打开。</li>
+            <li dir="ltr">添加右键菜单项：在访达中查看。</li>
+            <li dir="ltr">添加设置项：默认布局。</li>
+            <li dir="ltr">添加设置项：默认视图。</li>
+            <li dir="ltr">添加设置项：默认排序方式。</li>
+            <li dir="ltr">添加设置项：文字显示大小。</li>
+            <li dir="ltr">优化文件选择和重命名操作体验。</li>
+            <li dir="ltr">修复某些情况下的拖拽操作异常。</li>
+            <li dir="ltr">修复某些情况下的文件排序异常。</li>
+        </ol>
+        <p>&nbsp;</p>
+    </div>
+    <h3 class="version-history__item__version-number">1.0.3</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-07-26T23:08:13.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年7月27日"
+            >2019年7月27日</time
+        >
+    </p>
+    <div
+        id="ember341"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">
+                添加文件「剪切」功能（Command + X，仅支持在 QSpace 内操作）。
+            </li>
+            <li dir="ltr">
+                添加列表视图二级缩放（切换显示大小：Command + 加号或减号）。
+            </li>
+            <li dir="ltr">
+                添加网格视图四级缩放（切换显示大小：Command + 加号或减号）。
+            </li>
+            <li dir="ltr">添加文件删除和拷贝音效。</li>
+            <li dir="ltr">添加“使用所选项新建文件夹”右键菜单项。</li>
+            <li dir="ltr">支持启动 Jar 程序包。</li>
+            <li dir="ltr">支持文件拷贝、移动时的冲突选择。</li>
+            <li dir="ltr">优化拷贝黏贴操作。</li>
+            <li dir="ltr">同步窗口名称为工作区名称。</li>
+            <li dir="ltr">修复空拖拽导致的页面显示异常。</li>
+            <li dir="ltr">修复工作区名称偶尔无法编辑的问题。</li>
+        </ol>
+    </div>
+    <h3 class="version-history__item__version-number">1.0.2</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-07-20T19:11:43.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年7月21日"
+            >2019年7月21日</time
+        >
+    </p>
+    <div
+        id="ember346"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">添加隐藏文件显示切换（热键：Command+Shift+.）。</li>
+            <li dir="ltr">添加打开终端和编辑器自定义选择。</li>
+            <li dir="ltr">优化工作区内文件刷新频率。</li>
+            <li dir="ltr">优化文件改名操作。</li>
+            <li dir="ltr">优化未授权路径访问。</li>
+            <li dir="ltr">优化大文件或大量文件操作进度提示。</li>
+            <li dir="ltr">修复一些界面异常。</li>
+        </ol>
+        <p>&nbsp;</p>
+    </div>
+    <h3 class="version-history__item__version-number">1.0.1</h3>
+    <p>
+        <time
+            class="version-history__item__release-date"
+            datetime="2019-07-17T20:32:48.000Z"
+            data-test-we-datetime=""
+            aria-label="2019年7月18日"
+            >2019年7月18日</time
+        >
+    </p>
+    <div
+        id="ember351"
+        class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--full ember-view version-history__item__release-notes"
+    >
+        <ol>
+            <li dir="ltr">添加剪切粘贴支持（快捷键Command+Option+V）。</li>
+            <li dir="ltr">添加回车功能设置项，默认保持和Finder功能一致。</li>
+            <li dir="ltr">
+                支持从用户应用文件夹，选择自定义打开终端或编辑器。
+            </li>
+            <li dir="ltr">完善地址栏，支持输入省略用户路径前缀的地址。</li>
+            <li dir="ltr">完善按种类排序时，文件夹置顶。</li>
+            <li dir="ltr">修复工作区内文件更新引起的崩溃。</li>
+            <li dir="ltr">修复列表内文件属性更新延迟。</li>
+            <li dir="ltr">修复网格视图内新建文件或文件夹时焦点异常。</li>
+            <li dir="ltr">修复返回前进导航错乱。</li>
+            <li dir="ltr">修复更改文件名时列表刷新引起的焦点异常。</li>
+        </ol>
+    </div>
+    <div class="entry-copyright">
+        <p>
+            原创文章，作者：老D，如若转载，请注明出处：https://laod.cn/tools/qspace.html
+        </p>
+    </div>
+</section>

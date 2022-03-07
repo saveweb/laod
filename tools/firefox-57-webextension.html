@@ -1,30 +1,1050 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="initial-scale=1.0,maximum-scale=5,width=device-width,viewport-fit=cover"><title>Firefox 57+ 值得推荐的 WebExtension 拓展 - 老D博客</title><meta name="keywords" content="FireFox,Firefox 57,Firefox拓展,火狐拓展" /><meta name="description" content="Firefox从57版本开始将全面启用WebExtensions拓展，传统XUL拓展将不被支持，这个决定有利有弊，弊在于拓展功能性降低，利在于WebExtensions拓展支持多进程，浏览速度将更加快速流畅，在跨浏览器拓展开发将更容易被移植，WebExtensions拓展将是未来发展的方向，后续Firefox官方将会提供更多的API，Firefox拓展也将比其他浏览器的拓展更加强大，更加Firef..." /><meta property="og:type" content="article" /><meta property="og:url" content="https://laod.cn/tools/firefox-57-webextension.html" /><meta property="og:site_name" content="老D博客" /><meta property="og:title" content="Firefox 57+ 值得推荐的 WebExtension 拓展" /><meta property="og:image" content="https://laod.cn/wp-content/uploads/2018/03/Firefox.png" /><meta property="og:description" content="Firefox从57版本开始将全面启用WebExtensions拓展，传统XUL拓展将不被支持，这个决定有利有弊，弊在于拓展功能性降低，利在于WebExtensions拓展支持多进程，浏览速度将更加快速流畅，在跨浏览器拓展开发将更容易被移植，WebExtensions拓展将是未来发展的方向，后续Firefox官方将会提供更多的API，Firefox拓展也将比其他浏览器的拓展更加强大，更加Firef..." /><link rel="canonical" href="https://laod.cn/tools/firefox-57-webextension.html" /><meta name="applicable-device" content="pc,mobile" /><meta http-equiv="Cache-Control" content="no-transform" /><link rel="shortcut icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /><link rel='dns-prefetch' href='//cdn.laod.wang' /><link rel='dns-prefetch' href='//s2.ax1x.com' /><link rel='stylesheet' id='stylesheet-css' href='//laod.cn/wp-content/uploads/wpcom/style.6.8.2.1632028585.css?ver=6.8.2' type='text/css' media='all' /><link rel='stylesheet' id='font-awesome-css' href='https://laod.cn/wp-content/themes/justnews/themer/assets/css/font-awesome.css?ver=6.8.2' type='text/css' media='all' /><link rel='stylesheet' id='wp-block-library-css' href='https://laod.cn/wp-includes/css/dist/block-library/style.min.css?ver=5.9.1' type='text/css' media='all' /><style id='global-styles-inline-css' type='text/css'>body{--wp--preset--color--black:#000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#fff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px}.has-black-color{color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-color{color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-color{color:var(--wp--preset--color--white)!important}.has-pale-pink-color{color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-color{color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-color{color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-color{color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-color{color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-color{color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-color{color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-color{color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-color{color:var(--wp--preset--color--vivid-purple)!important}.has-black-background-color{background-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-background-color{background-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-background-color{background-color:var(--wp--preset--color--white)!important}.has-pale-pink-background-color{background-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-background-color{background-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-background-color{background-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-background-color{background-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-background-color{background-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-background-color{background-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-background-color{background-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-background-color{background-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-background-color{background-color:var(--wp--preset--color--vivid-purple)!important}.has-black-border-color{border-color:var(--wp--preset--color--black)!important}.has-cyan-bluish-gray-border-color{border-color:var(--wp--preset--color--cyan-bluish-gray)!important}.has-white-border-color{border-color:var(--wp--preset--color--white)!important}.has-pale-pink-border-color{border-color:var(--wp--preset--color--pale-pink)!important}.has-vivid-red-border-color{border-color:var(--wp--preset--color--vivid-red)!important}.has-luminous-vivid-orange-border-color{border-color:var(--wp--preset--color--luminous-vivid-orange)!important}.has-luminous-vivid-amber-border-color{border-color:var(--wp--preset--color--luminous-vivid-amber)!important}.has-light-green-cyan-border-color{border-color:var(--wp--preset--color--light-green-cyan)!important}.has-vivid-green-cyan-border-color{border-color:var(--wp--preset--color--vivid-green-cyan)!important}.has-pale-cyan-blue-border-color{border-color:var(--wp--preset--color--pale-cyan-blue)!important}.has-vivid-cyan-blue-border-color{border-color:var(--wp--preset--color--vivid-cyan-blue)!important}.has-vivid-purple-border-color{border-color:var(--wp--preset--color--vivid-purple)!important}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple)!important}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan)!important}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange)!important}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red)!important}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray)!important}.has-cool-to-warm-spectrum-gradient-background{background:var(--wp--preset--gradient--cool-to-warm-spectrum)!important}.has-blush-light-purple-gradient-background{background:var(--wp--preset--gradient--blush-light-purple)!important}.has-blush-bordeaux-gradient-background{background:var(--wp--preset--gradient--blush-bordeaux)!important}.has-luminous-dusk-gradient-background{background:var(--wp--preset--gradient--luminous-dusk)!important}.has-pale-ocean-gradient-background{background:var(--wp--preset--gradient--pale-ocean)!important}.has-electric-grass-gradient-background{background:var(--wp--preset--gradient--electric-grass)!important}.has-midnight-gradient-background{background:var(--wp--preset--gradient--midnight)!important}.has-small-font-size{font-size:var(--wp--preset--font-size--small)!important}.has-medium-font-size{font-size:var(--wp--preset--font-size--medium)!important}.has-large-font-size{font-size:var(--wp--preset--font-size--large)!important}.has-x-large-font-size{font-size:var(--wp--preset--font-size--x-large)!important}</style> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/themer/assets/js/jquery-3.6.0.min.js?ver=3.6.0' id='jquery-core-js'></script> <script type='text/javascript' src='https://laod.cn/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/themer/assets/js/icons-2.6.18.js?ver=6.8.2' id='wpcom-icons-js'></script> <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://laod.cn/xmlrpc.php?rsd" /><link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://laod.cn/wp-includes/wlwmanifest.xml" /><link rel="icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" sizes="32x32" /><link rel="icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" sizes="192x192" /><link rel="apple-touch-icon" href="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /><meta name="msapplication-TileImage" content="https://laod.cn/wp-content/uploads/2021/03/favicon.ico" /> <noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player,[data-lazy-src]{display:none!important}</style></noscript> <!--[if lte IE 9]><script src="https://laod.cn/wp-content/themes/justnews/js/update.js"></script><![endif]--></head><body class="post-template-default single single-post postid-4564 single-format-standard lang-cn el-boxed"><header class="header"><div class="container clearfix"><div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-label="menu"> <span class="icon-bar icon-bar-1"></span> <span class="icon-bar icon-bar-2"></span> <span class="icon-bar icon-bar-3"></span> </button><div class="logo"> <a href="https://laod.cn" rel="home"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="老D博客" data-lazy-src="https://laod.cn/wp-content/uploads/2020/05/shinian-logo.png"><noscript><img src="https://laod.cn/wp-content/uploads/2020/05/shinian-logo.png" alt="老D博客"></noscript></a></div></div><div class="collapse navbar-collapse"><nav class="navbar-left primary-menu"><ul id="menu-x" class="nav navbar-nav wpcom-adv-menu"><li class="zmzm-shouye menu-item"><a href="https://laod.cn">首页</a></li><li class="zmzm-feiji1 menu-item"><a href="https://laod.cn/hosts">hosts</a></li><li class="zmzm-gongju menu-item current-post-ancestor current-post-parent active"><a href="https://laod.cn/tools">工具软件</a></li><li class="zmzm-code menu-item"><a href="https://laod.cn/code-audit">代码审计</a></li><li class="zmzm-keji menu-item"><a href="https://laod.cn/black-technology">黑科技</a></li><li class="zmzm-liuyan menu-item"><a href="https://laod.cn/guestbook">留言版</a></li><li class="zmzm-gengduo menu-item menu-item-style menu-item-style1 dropdown"><a href="#" class="dropdown-toggle">查看更多</a><ul class="dropdown-menu menu-item-wrap menu-item-col-4"><li class="zmzm-dianying menu-item"><a href="https://laod.cn/movie">电影·美剧</a></li><li class="zmzm-anquan menu-item"><a href="https://laod.cn/security">网络安全</a></li><li class="zmzm-zixun menu-item"><a href="https://laod.cn/news">业界资讯</a></li><li class="zmzm-mianfei-copy menu-item"><a href="https://laod.cn/free">免费资源</a></li></ul></li></ul></nav><div class="navbar-action pull-right"><div class="navbar-search-icon j-navbar-search"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-search"></use></svg></i></div><div id="j-user-wrap"> <a class="login" href="https://laod.cn/login?modal-type=login">登录</a> <a class="login register" href="https://laod.cn/register?modal-type=register">注册</a></div></div><form class="navbar-search" action="https://laod.cn" method="get" role="search"><div class="navbar-search-inner"> <i class="wpcom-icon wi navbar-search-close"><svg aria-hidden="true"><use xlink:href="#wi-close"></use></svg></i> <input type="text" name="s" class="navbar-search-input" autocomplete="off" placeholder="输入关键词搜索..." value=""> <button class="navbar-search-btn" type="submit"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-search"></use></svg></i></button></div></form></div></div></header><div id="wrap"><div class="wrap container"><main class="main"><article id="post-4564" class="post-4564 post type-post status-publish format-standard hentry category-tools tag-firefox tag-firefox-57 tag-1096 entry"><div class="entry-main"><div class="entry-head"><h1 class="entry-title">Firefox 57+ 值得推荐的 WebExtension 拓展</h1><div class="entry-info"> <time class="entry-date published" datetime="2018-03-02T21:08:56+08:00" pubdate> 2018-03-02 21:08 </time> <span class="dot">•</span> <a href="https://laod.cn/tools" rel="category tag">工具软件</a> <span class="dot">•</span> <span>阅读 16336</span></div></div><div class="entry-content text-indent"><p><a href="https://laod.cn/wp-content/uploads/2018/03/Firefox.png"><noscript><img class="alignnone size-full wp-image-4565" src="https://laod.cn/wp-content/uploads/2018/03/Firefox.png" alt="Firefox" width="575" height="332" /></noscript><img class="alignnone size-full wp-image-4565 j-lazy" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20575%20332'%3E%3C/svg%3E" data-original="https://laod.cn/wp-content/uploads/2018/03/Firefox.png" alt="Firefox" width="575" height="332" data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript><img class="alignnone size-full wp-image-4565 j-lazy" src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" data-original="https://laod.cn/wp-content/uploads/2018/03/Firefox.png" alt="Firefox" width="575" height="332" /></noscript></a></p><div class="toggle-box-content active">Firefox 从 57 版本开始将全面启用 WebExtensions 拓展，传统 XUL 拓展将不被支持，这个决定有利有弊，弊在于拓展功能性降低，利在于 WebExtensions 拓展支持多进程，浏览速度将更加快速流畅，在跨浏览器拓展开发将更容易被移植，WebExtensions 拓展将是未来发展的方向，后续Firefox官方将会提供更多的API，Firefox 拓展也将比其他浏览器的拓展更加强大，更加Firefox。</div><div class="toggle-box-content active"><p>&nbsp;</p><p>PS: 下面所列出的大部分 WebEtension 拓展均支持所有版本的Firefox，但部分拓展只支持Firefox57+。</p></div><p class="toggle-box-head"><strong>拓展推荐</strong></p><div class="toggle-box-content active"><table id="tablepress-62" class="tablepress tablepress-id-62"><tbody class="row-hover"><tr class="row-1 odd"><td class="column-1" colspan="2"><strong>WebExtensions 常用拓展替代</strong></td></tr><tr class="row-2 even"><td class="column-1"><span style="font-size: 10pt;">视频下载</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/video-downloadhelper/" target="_blank" rel="noopener">Video DownloadHelper</a> 替代 NetVideoHunter，支持的绝大多数网站。</span></td></tr><tr class="row-3 odd"><td class="column-1"><span style="font-size: 10pt;">代理工具</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/switchyomega/" target="_blank" rel="noopener">Proxy SwitchyOmega</a> 替代 AutoProxy，相对比较简单。</span></td></tr><tr class="row-4 even"><td class="column-1"><span style="font-size: 10pt;">用户脚本管理</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/tampermonkey/" target="_blank" rel="noopener">Tampermonkey</a> 替代 Greasemonkey，Greasemonkey 4.0 新版并不那么好用。</span></td></tr><tr class="row-5 odd"><td class="column-1"><span style="font-size: 10pt;">用户样式管理</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/xstyle/" target="_blank" rel="noopener">xStyle</a> 替代 Stylish，Firefox吧出品，Stylish 3.0 新版并不那么好用。</span></td></tr><tr class="row-6 even"><td class="column-1"><span style="font-size: 10pt;">拨号页工具</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/new-tab-speed-dial/" target="_blank" rel="noopener">Speed dial 2</a> 替代 Super Start，功能很完善，提供了大部分网站的略缩图。</span></td></tr><tr class="row-7 odd"><td class="column-1"><span style="font-size: 10pt;">手形拖拽</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/scroll_anywhere/" target="_blank" rel="noopener">ScrollAnywhere</a> 替代 Grab and Drag，更加轻量化。</span></td></tr><tr class="row-8 even"><td class="column-1"><span style="font-size: 10pt;">视频广告过滤</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://www.yiclear.com/download/" target="_blank" rel="noopener">YiClear</a> 替代 ACVAA，看上去是有团队在维护，失效点击更新即可。</span></td></tr><tr class="row-9 odd"><td class="column-1"><span style="font-size: 10pt;">翻译工具</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/ql_en2zh/" target="_blank" rel="noopener">轻灵划译</a>，虽然并不那么完美，但还是一款非常不错的翻译拓展。</span></td></tr><tr class="row-10 even"><td class="column-1"><span style="font-size: 10pt;">稍候阅读</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/in-my-pocket/" target="_blank" rel="noopener">In My Pocket</a> 替代 ReadItLater，没想到还真有同类WE拓展，速度也很快。</span></td></tr><tr class="row-11 odd"><td class="column-1"><span style="font-size: 10pt;">标签设置</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/tab-mix-plus-webextension/" target="_blank" rel="noopener">Tab Mix WebExtension</a>，老牌标签拓展，还在实验开发阶段，功能不多。</span></td></tr><tr class="row-12 even"><td class="column-1"><span style="font-size: 10pt;">下载软件调用</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/thundercross/" target="_blank" rel="noopener">ThunderCross</a> 替代 xThunder，安装后需要再次安装一个exe文件。</span></td></tr><tr class="row-13 odd"><td class="column-1"><span style="font-size: 10pt;">广告过滤</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/ublock-origin/" target="_blank" rel="noopener">uBlock Origin</a>，完美兼容新版和旧版Firefox。</span></td></tr><tr class="row-14 even"><td class="column-1"><span style="font-size: 10pt;">密码管理</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/lastpass-password-manager/" target="_blank" rel="noopener">LastPass Password Manager</a>，完美兼容新版和旧版Firefox。</span></td></tr><tr class="row-15 odd"><td class="column-1"><span style="font-size: 10pt;">视频弹窗</span></td><td class="column-2"><span style="font-size: 10pt;">同时安装 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/maximize-video/?src=api" target="_blank" rel="noopener">Maximize Video</a> 和 <a href="https://addons.mozilla.org/zh-CN/firefox/addon/popup-window/" target="_blank" rel="noopener">Popup window</a>，可一键弹出小窗播放，替代火狐一键应用。</span></td></tr><tr class="row-16 even"><td class="column-1"><span style="font-size: 10pt;">图片批量下载</span></td><td class="column-2"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/download-star/" target="_blank" rel="noopener">Download Star</a>，遗憾不支持视频下载，替代 DownThemAll。</span></td></tr><tr class="row-17 odd"><td class="column-1"><span style="font-size: 10pt;"> </span></td><td class="column-2"><span style="font-size: 10pt;"> </span></td></tr><tr class="row-18 even"><td class="column-1" colspan="2"><span style="font-size: 10pt;"><strong>功能增强</strong></span></td></tr><tr class="row-19 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/easy-youtube-video-download/" target="_blank" rel="noopener">Youtube Video Downloader</a></span></td><td class="column-2"><span style="font-size: 10pt;">Y2B下载工具，支持多种分辨率下载。</span></td></tr><tr class="row-20 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/adblock-for-youtube/" target="_blank" rel="noopener">AdBlocker for YouTube</a></span></td><td class="column-2"><span style="font-size: 10pt;">去除Y2B视频上的广告。</span></td></tr><tr class="row-21 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/email-notifier/" target="_blank" rel="noopener">Email Notifier</a></span></td><td class="column-2"><span style="font-size: 10pt;">邮件提醒功能，支持所有邮箱。</span></td></tr><tr class="row-22 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/site-to-panel/" target="_blank" rel="noopener">Page to Panel</a></span></td><td class="column-2"><span style="font-size: 10pt;">以手机UA和小窗口模式打开指定网页。</span></td></tr><tr class="row-23 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://www.eff.org/https-everywhere" target="_blank" rel="noopener">https everywhere</a></span></td><td class="column-2"><span style="font-size: 10pt;">只要网站提供 SSL 服务，就自动转到 HTTPS 连接。</span></td></tr><tr class="row-24 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-cn/firefox/addon/onetab/" target="_blank" rel="noopener">OneTab</a></span></td><td class="column-2"><span style="font-size: 10pt;">标签页太多了？将您的标签页转换成一个列表</span></td></tr><tr class="row-25 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/wikiwand-webextension/" target="_blank" rel="noopener">WikiWand</a></span></td><td class="column-2"><span style="font-size: 10pt;">让排版老旧的Wikipedia有一个全新的界面。</span></td></tr><tr class="row-26 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/second-search/" target="_blank" rel="noopener">Second Search</a></span></td><td class="column-2"><span style="font-size: 10pt;">引用标记了“关键字”的书签进行搜索。</span></td></tr><tr class="row-27 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/url-to-qrcode/" target="_blank" rel="noopener">Url to QrCode</a></span></td><td class="column-2"><span style="font-size: 10pt;">页面QRCode生成工具，优势在于支持所有页面。</span></td></tr><tr class="row-28 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/user-agent-string-switcher/" target="_blank" rel="noopener">User-Agent Switcher</a></span></td><td class="column-2"><span style="font-size: 10pt;">用户代理切换工具。代理选项非常完善。</span></td></tr><tr class="row-29 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/foxytab/" target="_blank" rel="noopener">FoxyTab</a></span></td><td class="column-2"><span style="font-size: 10pt;">标签增强工具。提供各种标签增强功能。</span></td></tr><tr class="row-30 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/multiple-tab-handler/" target="_blank" rel="noopener">Multiple Tab Handler</a></span></td><td class="column-2"><span style="font-size: 10pt;">标签增强工具。批量管理标签页。</span></td></tr><tr class="row-31 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/tab-center-redux/" target="_blank" rel="noopener">Tab Center Redux</a></span></td><td class="column-2"><span style="font-size: 10pt;">侧边栏工具。将当前打开的标签在移到侧边栏中显示，支持略缩图。</span></td></tr><tr class="row-32 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/" target="_blank" rel="noopener">Tree Style Tab</a></span></td><td class="column-2"><span style="font-size: 10pt;">侧边栏工具。将当前打开的标签全部在侧边栏中显示，同能显示标签之间的从属继承关系</span></td></tr><tr class="row-33 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/tile-tabs-we/" target="_blank" rel="noopener">Tile Tabs WE</a></span></td><td class="column-2"><span style="font-size: 10pt;">标签页分割同屏显示，非常适合于同时进行多项任务的情况。</span></td></tr><tr class="row-34 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/dark-mode-webextension/?src=userprofile" target="_blank" rel="noopener">Dark Mode</a></span></td><td class="column-2"><span style="font-size: 10pt;">黑夜模式。将网页变成黑夜阅读模式。</span></td></tr><tr class="row-35 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/selection-context-search/?src=api" target="_blank" rel="noopener">Selection Context Search</a></span></td><td class="column-2"><span style="font-size: 10pt;">右键搜索工具。同类拓展里功能最多的，因API限制，无法使用搜索栏中的引擎。</span></td></tr><tr class="row-36 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/snaplinksplus/" target="_blank" rel="noopener">Snap Links Plus</a></span></td><td class="column-2"><span style="font-size: 10pt;">批量打开链接工具。一次性选择多个链接同时打开。</span></td></tr><tr class="row-37 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/nl/firefox/addon/update-scanner/" target="_blank" rel="noopener">Update Scanner</a></span></td><td class="column-2"><span style="font-size: 10pt;">监测跟踪网站更新工具。用于跟踪没有提供RSS的网站更新。</span></td></tr><tr class="row-38 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/image-reverse-search/" target="_blank" rel="noopener">Reverse Image Search</a></span></td><td class="column-2"><span style="font-size: 10pt;">图片以图搜图工具。</span></td></tr><tr class="row-39 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/" target="_blank" rel="noopener">Bookmarks Organizer</a></span></td><td class="column-2"><span style="font-size: 10pt;">书签整理工具。可以一键查找失效书签、重复书签、检测书签是否重定向并自动修复。</span></td></tr><tr class="row-40 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/brief/" target="_blank" rel="noopener">Brief</a></span></td><td class="column-2"><span style="font-size: 10pt;">RSS本地阅读器。老牌本地RSS阅读器的WE拓展版。</span></td></tr><tr class="row-41 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/save-in/" target="_blank" rel="noopener">Save In…</a></span></td><td class="column-2"><span style="font-size: 10pt;">快速保存工具。包括图片，视频，音频，还有已选文字到txt文档。</span></td></tr><tr class="row-42 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/textarea-cache/" target="_blank" rel="noopener">Textarea Cache</a></span></td><td class="column-2"><span style="font-size: 10pt;">自动保存输入框内已输入的文字。</span></td></tr><tr class="row-43 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/videospeed/" target="_blank" rel="noopener">Video Speed Controller</a></span></td><td class="column-2"><span style="font-size: 10pt;">HTML5视频全局控制播放工具。ZX为后退前进10秒，SD为减慢加快播放速度，R为恢复默认。</span></td></tr><tr class="row-44 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/link-text-and-location-copier/" target="_blank" rel="noopener">Link Text and Location Copier</a></span></td><td class="column-2"><span style="font-size: 10pt;">链接复制粘贴工具，支持多种格式，支持自定义。</span></td></tr><tr class="row-45 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/enable-rightclick-and-copy/" target="_blank" rel="noopener">Enable Right Click and Copy</a></span></td><td class="column-2"><span style="font-size: 10pt;">右键解锁工具。包括选择，复制，右键菜单等</span></td></tr><tr class="row-46 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/ypsuperkey/" target="_blank" rel="noopener">云盘万能钥匙</a></span></td><td class="column-2"><span style="font-size: 10pt;">自动输入百度云分享文件的密码，还能提前显示分享的链接是否失效。</span></td></tr><tr class="row-47 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/copyfish-ocr-software/#&amp;gid=1&amp;pid=2" target="_blank" rel="noopener">Copyfish</a></span></td><td class="column-2"><span style="font-size: 10pt;">OCR文字识别工具。支持图片视频PDF，通过截图的方式进行认别。</span></td></tr><tr class="row-48 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/enable-rightclick-and-copy/" target="_blank" rel="noopener">Enable Right Click and Copy</a></span></td><td class="column-2"><span style="font-size: 10pt;">解除网页右键限制。在https加密网页上也能使用。</span></td></tr><tr class="row-49 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/search-multi-tabs/" target="_blank" rel="noopener">Search Multi Tabs</a></span></td><td class="column-2"><span style="font-size: 10pt;">同时搜索多个标签的关键词 。</span></td></tr><tr class="row-50 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/en-US/firefox/addon/block-site-2/" target="_blank" rel="noopener">Block Site</a></span></td><td class="column-2"><span style="font-size: 10pt;">让某一些网站无法访问，适合工作的时候使用。</span></td></tr><tr class="row-51 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/douyuhtml5player/" target="_blank" rel="noopener">斗鱼HTML5播放器</a></span></td><td class="column-2"><span style="font-size: 10pt;">做为第一大直播平台，没有HTML5播放器，实在说不过去。</span></td></tr><tr class="row-52 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/forget-that-page/" target="_blank" rel="noopener">Forget that page</a></span></td><td class="column-2"><span style="font-size: 10pt;">一键清理当前网页痕迹,，包括 cookies、历史记录、本地存储、会话存储内容。</span></td></tr><tr class="row-53 odd"><td class="column-1"><span style="font-size: 10pt;"> </span></td><td class="column-2"><span style="font-size: 10pt;"> </span></td></tr><tr class="row-54 even"><td class="column-1"><span style="font-size: 10pt;"> </span></td><td class="column-2"><span style="font-size: 10pt;"> </span></td></tr><tr class="row-55 odd"><td class="column-1"><span style="font-size: 10pt;"> </span></td><td class="column-2"><span style="font-size: 10pt;"> </span></td></tr><tr class="row-56 even"><td class="column-1" colspan="2"><span style="font-size: 10pt;"><strong>开发者拓展</strong></span></td></tr><tr class="row-57 odd"><td class="column-1"><span style="font-size: 10pt;">开发者工具箱</span></td><td class="column-2"><span style="font-size: 10pt;">开发必备，Shift+Ctrl+Alt+I 弹出开发者工具箱，替代DOM Inspector和Firebug。</span></td></tr><tr class="row-58 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://testpilot.firefox.com/" target="_blank" rel="noopener">Firefox Test Pilot</a></span></td><td class="column-2"><span style="font-size: 10pt;">Firefox测试飞行员，Firefox官方提供的各种新奇有趣的实验拓展。</span></td></tr><tr class="row-59 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/web-developer/?src=search" target="_blank" rel="noopener">Web Developer</a></span></td><td class="column-2"><span style="font-size: 10pt;">Web开发调试工具，查看网页元素。</span></td></tr><tr class="row-60 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/sharp-color-picker/?src=search" target="_blank" rel="noopener">Sharp Color Picker</a></span></td><td class="column-2"><span style="font-size: 10pt;">取色器和颜色调整，适合网页开发。</span></td></tr><tr class="row-61 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/chrome-store-foxified/" target="_blank" rel="noopener">Chrome Store Foxified</a></span></td><td class="column-2"><span style="font-size: 10pt;">让Firefox用上Chrome的扩展，但并不是所有都有使用。具体参考：<a href="http://www.apprcn.com/chrome-store-foxified.html/comment-page-1" target="_blank" rel="noopener">这里</a>。</span></td></tr><tr class="row-62 even"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/header-editor/" target="_blank" rel="noopener">Header Editor</a></span></td><td class="column-2"><span style="font-size: 10pt;">管理浏览器请求，包括修改请求头和响应头、重定向请求、取消请求。</span></td></tr><tr class="row-63 odd"><td class="column-1"><span style="font-size: 10pt;"><a href="https://addons.mozilla.org/zh-CN/firefox/addon/crxviewer/" target="_blank" rel="noopener">Extension source viewer</a></span></td><td class="column-2"><span style="font-size: 10pt;">在不用安装Mozilla Addons 和Chrome Store 拓展的情况下查看拓展源码和打包下载。</span></td></tr><tr class="row-64 even"><td class="column-1"><span style="font-size: 10pt;"> </span></td><td class="column-2"><span style="font-size: 10pt;"> </span></td></tr></tbody></table></div><div class="entry-copyright"><p>原创文章，作者：老D，如若转载，请注明出处：https://laod.cn/tools/firefox-57-webextension.html</p></div></div><div class="entry-tag"><a href="https://laod.cn/tag/firefox" rel="tag">FireFox</a><a href="https://laod.cn/tag/firefox-57" rel="tag">Firefox 57</a><a href="https://laod.cn/tag/firefox%e6%8b%93%e5%b1%95" rel="tag">Firefox拓展</a><a href="https://laod.cn/tag/%e7%81%ab%e7%8b%90%e6%8b%93%e5%b1%95" rel="tag">火狐拓展</a></div><div class="entry-action"><div class="btn-zan" data-id="4564"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up-fill"></use></svg></i> 赞 <span class="entry-action-num">(0)</span></div></div><div class="entry-bar"><div class="entry-bar-inner clearfix"><div class="info text-center"><div class="info-item meta"> <a class="meta-item j-heart" href="javascript:;" data-id="4564"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i> <span class="data">0</span></a> <a class="meta-item" href="#comments"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i> <span class="data">2</span></a></div><div class="info-item share"> <a class="meta-item mobile j-mobile-share" href="javascript:;" data-id="4564" data-qrcode="https://laod.cn/tools/firefox-57-webextension.html"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-share"></use></svg></i> 生成海报</a> <a class="meta-item wechat" data-share="wechat" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-wechat"></use></svg></i> </a> <a class="meta-item weibo" data-share="weibo" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-weibo"></use></svg></i> </a> <a class="meta-item qq" data-share="qq" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-qq"></use></svg></i> </a> <a class="meta-item qzone" data-share="qzone" target="_blank" rel="nofollow" href="#"> <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-qzone"></use></svg></i> </a></div><div class="info-item act"> <a href="javascript:;" id="j-reading"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-article"></use></svg></i></a></div></div></div></div></div><div class="entry-page"><div class="entry-page-prev entry-page-nobg" style="background-image: url();"> <a href="https://laod.cn/tools/cloudreve-wangpan.html" title="Cloudreve网盘程序 支持对接多家云存储且公私兼备" rel="prev"> <span>Cloudreve网盘程序 支持对接多家云存储且公私兼备</span> </a><div class="entry-page-info"> <span class="pull-left"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-arrow-left-double"></use></svg></i> 上一篇</span> <span class="pull-right">2018-02-28 14:32</span></div></div><div class="entry-page-next entry-page-nobg" style="background-image: url();"> <a href="https://laod.cn/tools/chrome-65.html" title="Google Chrome浏览器 65稳定版正式发布 加入45项安全更新" rel="next"> <span>Google Chrome浏览器 65稳定版正式发布 加入45项安全更新</span> </a><div class="entry-page-info"> <span class="pull-right">下一篇 <i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-arrow-right-double"></use></svg></i></span> <span class="pull-left">2018-03-08 09:04</span></div></div></div><div class="entry-related-posts"><h3 class="entry-related-title">相关推荐</h3><ul class="entry-related cols-3 post-loop post-loop-default"><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/macos-md5-sha1-sha256.html" title="MacOS终端命令查看文件MD5 SHA1 SHA256" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="MacOS终端命令查看文件MD5 SHA1 SHA256" data-lazy-src="https://laod.cn/wp-content/uploads/2019/11/c-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2019/11/c-480x300.jpg" width="480" height="300" alt="MacOS终端命令查看文件MD5 SHA1 SHA256"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/macos-md5-sha1-sha256.html" target="_blank" rel="bookmark"> MacOS终端命令查看文件MD5 SHA1 SHA256 </a></h4><div class="item-excerpt"><p>MacOS系统中的终端可以通过命令查看文件或者字符串的MD5值等； 查看文件MD5： md5[空格][拖曳要检测的文件到此处] 查看字符串MD5： md5[空格]-s[空格][要转&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2019-11-01</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>5.2K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>4</span><a class="item-meta-li comments" href="https://laod.cn/tools/macos-md5-sha1-sha256.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/chrome-69.html" title="谷歌Chrome 69浏览器正式版发布 全新视觉UI、搜索/密码管理更强大" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="谷歌Chrome 69浏览器正式版发布 全新视觉UI、搜索/密码管理更强大" data-lazy-src="https://laod.cn/wp-content/uploads/2018/09/Google-Chrome-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2018/09/Google-Chrome-480x300.png" width="480" height="300" alt="谷歌Chrome 69浏览器正式版发布 全新视觉UI、搜索/密码管理更强大"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/chrome-69.html" target="_blank" rel="bookmark"> 谷歌Chrome 69浏览器正式版发布 全新视觉UI、搜索/密码管理更强大 </a></h4><div class="item-excerpt"><p>正如此前预告，作为Chrome十周年活动的一部分，Chrome 69即日起（9月5日）在全平台发布，包括但不限于Windows、Android、iOS等。 Chrome 69在UI&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-09-06</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>10.3K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/chrome-69.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>10</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/jquery-cdn.html" title="另类的jQuery的CDN源" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="另类的jQuery的CDN源" data-lazy-src="https://laod.cn/wp-content/uploads/2016/06/cnd-480x300.gif"><noscript><img src="https://laod.cn/wp-content/uploads/2016/06/cnd-480x300.gif" width="480" height="300" alt="另类的jQuery的CDN源"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/jquery-cdn.html" target="_blank" rel="bookmark"> 另类的jQuery的CDN源 </a></h4><div class="item-excerpt"><p>我们常见的CND加速有阿里云、百度云加速、安全宝、加速乐、360加速、星域CDN等， 下面给大家看看两个比较另类jQuery的CDN源 http://ossweb-img.qq.c&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-06-10</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>2.9K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/jquery-cdn.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>9</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/chrome-jietu.html" title="使用 Chrome 自带命令实现网页截图" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="使用 Chrome 自带命令实现网页截图" data-lazy-src="https://laod.cn/wp-content/uploads/2017/04/Google-Chrome-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2017/04/Google-Chrome-480x300.jpg" width="480" height="300" alt="使用 Chrome 自带命令实现网页截图"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/chrome-jietu.html" target="_blank" rel="bookmark"> 使用 Chrome 自带命令实现网页截图 </a></h4><div class="item-excerpt"><p>平时在使用中偶尔需要截取网页中的图片，一般需要安装插件什么的，偶然发现chrome自带一个非常好用的截图功能，不需要任何依赖插件，还带有很多其他命令，所以做一下分享。 第一步打开c&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-11-25</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>7.9K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/chrome-jietu.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>3</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/kmplayer-pro.html" title="「限时免费」KMPlayer Pro 安卓版" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="「限时免费」KMPlayer Pro 安卓版" data-lazy-src="https://laod.cn/wp-content/uploads/2019/01/km-480x300.jpeg"><noscript><img src="https://laod.cn/wp-content/uploads/2019/01/km-480x300.jpeg" width="480" height="300" alt="「限时免费」KMPlayer Pro 安卓版"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/kmplayer-pro.html" target="_blank" rel="bookmark"> 「限时免费」KMPlayer Pro 安卓版 </a></h4><div class="item-excerpt"><p>最近发现Google Play原价US$3.49刀的KMPlayer Pro进行折扣活动，2019-01-02到2019-01-09号可用免费下载。 KMPlayer Pro[没有&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2019-01-03</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>12.0K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/kmplayer-pro.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>9</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/chrome-69-shezhi.html" title="关于Chrome 69 版本 一些改变以及设置" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="关于Chrome 69 版本 一些改变以及设置" data-lazy-src="https://laod.cn/wp-content/uploads/2017/04/Google-Chrome-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2017/04/Google-Chrome-480x300.jpg" width="480" height="300" alt="关于Chrome 69 版本 一些改变以及设置"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/chrome-69-shezhi.html" target="_blank" rel="bookmark"> 关于Chrome 69 版本 一些改变以及设置 </a></h4><div class="item-excerpt"><p>不可否认，前几天Google更新Chrome 69版本感觉变化是最大的，很多童鞋都不能适应&#8230; Chrome 69浏览器离线下载地址： Stable 稳定版 32 位：6&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-09-08</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>45.7K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/chrome-69-shezhi.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>24</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/7zip-jieya-mingling.html" title="使用7zip压解各种文件的常用命令" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="使用7zip压解各种文件的常用命令" data-lazy-src="https://laod.cn/wp-content/uploads/2016/01/7zip-480x300.png"><noscript><img src="https://laod.cn/wp-content/uploads/2016/01/7zip-480x300.png" width="480" height="300" alt="使用7zip压解各种文件的常用命令"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/7zip-jieya-mingling.html" target="_blank" rel="bookmark"> 使用7zip压解各种文件的常用命令 </a></h4><div class="item-excerpt"><p>7zip简介 格式支持 压缩解压缩 仅支持解压缩 安装 Debian ubuntu Archlinux 使用 打包 解压 列出文件的信息列表 检查包的完整性 更新压缩包 删除包里的&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-01-30</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>4.1K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/7zip-jieya-mingling.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>0</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/chrome-duoxiancheng.html" title="谷歌浏览器下载速度慢？那是你没打开多线程下载" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="谷歌浏览器下载速度慢？那是你没打开多线程下载" data-lazy-src="https://laod.cn/wp-content/uploads/2020/02/Chrome-480x300.jpeg"><noscript><img src="https://laod.cn/wp-content/uploads/2020/02/Chrome-480x300.jpeg" width="480" height="300" alt="谷歌浏览器下载速度慢？那是你没打开多线程下载"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/chrome-duoxiancheng.html" target="_blank" rel="bookmark"> 谷歌浏览器下载速度慢？那是你没打开多线程下载 </a></h4><div class="item-excerpt"><p>Google Chrome是一款由谷歌公司开发的网页浏览器产品，它的首个beta测试版本是在2008年9月2日发布，并且提供了50种语言版本，还有Windows、OS X、Linu&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2020-02-08</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>30.5K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>16</span><a class="item-meta-li comments" href="https://laod.cn/tools/chrome-duoxiancheng.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>3</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/google-chrome-55-0-2883-75.html" title="Google Chrome 55.0.2883.75 正式版发布" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="Google Chrome 55.0.2883.75 正式版发布" data-lazy-src="https://laod.cn/wp-content/uploads/2016/01/Google-Chrome-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2016/01/Google-Chrome-480x300.jpg" width="480" height="300" alt="Google Chrome 55.0.2883.75 正式版发布"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/google-chrome-55-0-2883-75.html" target="_blank" rel="bookmark"> Google Chrome 55.0.2883.75 正式版发布 </a></h4><div class="item-excerpt"><p>谷歌浏览器Chrome Stable稳定版迎来v55正式版首版发布，详细版本号为v55.0.2883.75，上一个正式版发布于11月10日，时隔22天Google又发布了新版Chr&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2016-12-02</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>6.8K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/google-chrome-55-0-2883-75.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>32</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li><li class="item"><div class="item-img"> <a class="item-img-inner" href="https://laod.cn/tools/islide-ppt.html" title="一键搞定PPT，这可能是目前最好的PPT神器！" target="_blank" rel="bookmark"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20480%20300'%3E%3C/svg%3E" width="480" height="300" alt="一键搞定PPT，这可能是目前最好的PPT神器！" data-lazy-src="https://laod.cn/wp-content/uploads/2018/07/1-480x300.jpg"><noscript><img src="https://laod.cn/wp-content/uploads/2018/07/1-480x300.jpg" width="480" height="300" alt="一键搞定PPT，这可能是目前最好的PPT神器！"></noscript> </a> <a class="item-category" href="https://laod.cn/tools" target="_blank">工具软件</a></div><div class="item-content"><h4 class="item-title"> <a href="https://laod.cn/tools/islide-ppt.html" target="_blank" rel="bookmark"> 一键搞定PPT，这可能是目前最好的PPT神器！ </a></h4><div class="item-excerpt"><p>我是一个几乎不做PPT的人，但是有的用户在私下与我交流中经常会谈到PPT，加班或熬夜做都是家常便饭，究其原因都是做PPT的效率低下，今天给大家推荐一款PPT中的插件叫iSlide，&#8230;</p></div><div class="item-meta"> <span class="item-meta-li date">2018-07-09</span><div class="item-meta-right"> <span class="item-meta-li views" title="阅读数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-eye"></use></svg></i>27.0K</span><span class="item-meta-li likes" title="点赞数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-thumb-up"></use></svg></i>0</span><a class="item-meta-li comments" href="https://laod.cn/tools/islide-ppt.html#comments" target="_blank" title="评论数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-comment"></use></svg></i>4</a><span class="item-meta-li stars" title="收藏数"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-star"></use></svg></i>0</span></div></div></div></li></ul></div><div id="comments" class="entry-comments"><div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/tools/firefox-57-webextension.html#respond" style="display:none;"><i class="wpcom-icon wi"><svg aria-hidden="true"><use xlink:href="#wi-close"></use></svg></i></a></small></h3><div class="comment-form"><div class="comment-must-login">请登录后评论...</div><div class="form-submit"><div class="form-submit-text pull-left"><a href="https://laod.cn/login?modal-type=login">登录</a>后才能评论</div> <button name="submit" type="submit" id="must-submit" class="btn btn-primary btn-xs submit">提交</button></div></div></div><h3 class="comments-title"> 评论列表（2条）</h3><ul class="comments-list"><li class="comment byuser even thread-even depth-1" id="comment-44223"><div id="div-comment-44223" class="comment-inner"><div class="comment-author vcard"> <img alt='a1191500' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/e4cdc17dca43b2c2540b970f347066a8?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/e4cdc17dca43b2c2540b970f347066a8?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='a1191500' src='//cravatar.cn/avatar/e4cdc17dca43b2c2540b970f347066a8?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/e4cdc17dca43b2c2540b970f347066a8?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname"><a class="j-user-card" data-user="6660" href="https://laod.cn/profile/6660" target="_blank">a1191500</a> <span class="comment-time">2018-03-11 17:08</span></div><div class="comment-text"><p>怎么收藏？呀</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li><li class="comment byuser odd alt thread-odd thread-alt depth-1" id="comment-44198"><div id="div-comment-44198" class="comment-inner"><div class="comment-author vcard"> <img alt='cjlcjlcjl43' src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2060%2060'%3E%3C/svg%3E" data-lazy-srcset='//cravatar.cn/avatar/1f3d8f645854bf7c54c48b7845066daf?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' data-lazy-src="//cravatar.cn/avatar/1f3d8f645854bf7c54c48b7845066daf?s=60&#038;d=mm&#038;r=g" /><noscript><img alt='cjlcjlcjl43' src='//cravatar.cn/avatar/1f3d8f645854bf7c54c48b7845066daf?s=60&#038;d=mm&#038;r=g' srcset='//cravatar.cn/avatar/1f3d8f645854bf7c54c48b7845066daf?s=120&#038;d=mm&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' /></noscript></div><div class="comment-body"><div class="nickname"><a class="j-user-card" data-user="7465" href="https://laod.cn/profile/7465" target="_blank">cjlcjlcjl43</a> <span class="comment-time">2018-03-09 13:55</span></div><div class="comment-text"><p>这么多插件全装满，会不会卡爆</p></div></div><div class="reply"> <a rel="nofollow" class="comment-reply-login" href="javascript:;">回复</a></div></div></li></ul><ul class="pagination"></ul></div></article></main><aside class="sidebar"><div id="wpcom-lastest-news-2" class="widget widget_lastest_news"><ul><li><a href="https://laod.cn/code-audit/apache-301.html" title="Apache 301转向技巧">Apache 301转向技巧</a></li><li><a href="https://laod.cn/tools/google-chrome-v43-0-2357-132.html" title="Google Chrome v43.0.2357.132 正式版发布">Google Chrome v43.0.2357.132 正式版发布</a></li><li><a href="https://laod.cn/news/google-autodraw.html" title="Google 推出AutoDraw 黑科技 灵魂画师有救了">Google 推出AutoDraw 黑科技 灵魂画师有救了</a></li><li><a href="https://laod.cn/movie/back-to-priscilla-live-2014.html" title="陈慧娴 &#8211; Back to Priscilla 30周年演唱会 Live &#8211; 2014 1080P+[WAV+CUE]百度云">陈慧娴 &#8211; Back to Priscilla 30周年演唱会 Live &#8211; 2014 1080P+[WAV+CUE]百度云</a></li><li><a href="https://laod.cn/news/sony-mobile-ip68.html" title="尼更改立场：请勿在水下使用防水手机 坏了不保修">尼更改立场：请勿在水下使用防水手机 坏了不保修</a></li><li><a href="https://laod.cn/code-audit/linux-file-name.html" title="Linux 大写文件名转小写">Linux 大写文件名转小写</a></li></ul></div><div id="categories-4" class="widget widget_categories"><h3 class="widget-title"><span>分类</span></h3><ul><li class="cat-item cat-item-1129"><a href="https://laod.cn/dns" title="公共DNS、DNS推荐、DNS测试、DNS评测、纯净DNS、科学DNS">DNS</a></li><li class="cat-item cat-item-150"><a href="https://laod.cn/hosts" title="最新hosts,hosts下载,hosts文件,hosts修改,hosts文件在哪里">hosts</a></li><li class="cat-item cat-item-1197"><a href="https://laod.cn/ssl" title="SSL、SSL证书、HTTPS、TLS 1.3、HTTP/2等... ">SSL</a></li><li class="cat-item cat-item-6"><a href="https://laod.cn/news" title="安全界、科技界的新闻记录，各种逆天科技、火星科技、黑科技">业界资讯</a></li><li class="cat-item cat-item-99"><a href="https://laod.cn/code-audit" title="代码审计 0day漏洞 漏洞挖掘...">代码审计</a></li><li class="cat-item cat-item-1"><a href="https://laod.cn/free" title="一切精品的免费资源，空间、域名、网盘、主题、云等各种免费资源。">免费资源</a></li><li class="cat-item cat-item-3"><a href="https://laod.cn/tools" title="收集分享破解各种黑科技、火星科技、实用好用的、新奇有趣的工具软件。">工具软件</a></li><li class="cat-item cat-item-4"><a href="https://laod.cn/journal" title="心情随笔，谱写记录生活中的一些琐事。">心情琐事</a></li><li class="cat-item cat-item-9"><a href="https://laod.cn/mito" title="摄影美图，各种唯美图、创意图、壁纸">摄影|美图</a></li><li class="cat-item cat-item-1417"><a href="https://laod.cn/chajian" title="Chrome好用的插件,Chrome插件，Chrome扩展，Firefox插件，Firefox扩展">浏览器插件</a></li><li class="cat-item cat-item-33"><a href="https://laod.cn/movie" title="好看的美剧,美剧下载,2017美剧,好看的电影">电影·美剧</a></li><li class="cat-item cat-item-11"><a href="https://laod.cn/life" title="美文、唯美句子、人生、日记">直视人生</a></li><li class="cat-item cat-item-5"><a href="https://laod.cn/security" title="网络安全，信息安全，网站安全，黑客，白帽子，黑帽子">网络安全</a></li><li class="cat-item cat-item-8"><a href="https://laod.cn/page" title="网页设计，网页设置，网页代码">网页|代码</a></li><li class="cat-item cat-item-93"><a href="https://laod.cn/black-technology" title="远超越现今人类科技或知识所能及的范畴，缺乏科学根据并且违反自然原理的科学技术或者产品。">黑科技</a></li><li class="cat-item cat-item-1578"><a href="https://laod.cn/hackintosh" title="分享黑苹果完美配置清单，黑苹果驱动、软件等...">黑苹果</a></li></ul></div></aside></div></div><footer class="footer"><div class="container"><div class="clearfix"><div class="footer-col footer-col-copy"><ul class="footer-nav hidden-xs"><li id="menu-item-6954" class="menu-item menu-item-6954"><a href="https://laod.cn/disclaimer">免责声明</a></li><li id="menu-item-6955" class="menu-item menu-item-6955"><a href="https://laod.cn/about">关于本站</a></li></ul><div class="copyright"><p>Copyright © 2021 上林县月夕花朝网络科技有限公司 版权所有 <a href="http://beian.miit.gov.cn" target="_blank" rel="nofollow noopener">桂ICP备18011504号-6</a> Powered by <a href="https://www.luyouwang.net" target="_blank" rel="noopener">路由网</a></p></div></div><div class="footer-col footer-col-sns"><div class="footer-sns"></div></div></div></div></footer><div class="action action-style-0 action-color-0 action-pos-0" style="bottom:20%;"><div class="action-item j-share"> <i class="wpcom-icon wi action-item-icon"><svg aria-hidden="true"><use xlink:href="#wi-share"></use></svg></i></div><div class="action-item gotop j-top"> <i class="wpcom-icon wi action-item-icon"><svg aria-hidden="true"><use xlink:href="#wi-arrow-up-2"></use></svg></i></div></div> <script type='text/javascript' id='main-js-extra'>/* <![CDATA[ */ var _wpcom_js = {"webp":"","ajaxurl":"https:\/\/laod.cn\/wp-admin\/admin-ajax.php","theme_url":"https:\/\/laod.cn\/wp-content\/themes\/justnews","slide_speed":"5000","static_cdn":"0","is_admin":"0","lightbox":"1","post_id":"4564","user_card_height":"356","poster":{"notice":"\u8bf7\u957f\u6309\u4fdd\u5b58\u56fe\u7247\uff0c\u5c06\u5185\u5bb9\u5206\u4eab\u7ed9\u66f4\u591a\u597d\u53cb","generating":"\u6b63\u5728\u751f\u6210\u6d77\u62a5\u56fe\u7247...","failed":"\u6d77\u62a5\u56fe\u7247\u751f\u6210\u5931\u8d25"},"video_height":"482","fixed_sidebar":"1","js_lang":{"page_loaded":"\u5df2\u7ecf\u5230\u5e95\u4e86","no_content":"\u6682\u65e0\u5185\u5bb9","load_failed":"\u52a0\u8f7d\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff01","login_desc":"\u60a8\u8fd8\u672a\u767b\u5f55\uff0c\u8bf7\u767b\u5f55\u540e\u518d\u8fdb\u884c\u76f8\u5173\u64cd\u4f5c\uff01","login_title":"\u8bf7\u767b\u5f55","login_btn":"\u767b\u5f55","reg_btn":"\u6ce8\u518c","copy_done":"\u590d\u5236\u6210\u529f\uff01","copy_fail":"\u6d4f\u89c8\u5668\u6682\u4e0d\u652f\u6301\u62f7\u8d1d\u529f\u80fd"},"login_url":"https:\/\/laod.cn\/login?modal-type=login","register_url":"https:\/\/laod.cn\/register?modal-type=register","captcha_label":"\u70b9\u51fb\u8fdb\u884c\u4eba\u673a\u9a8c\u8bc1","captcha_verified":"\u9a8c\u8bc1\u6210\u529f","errors":{"require":"\u4e0d\u80fd\u4e3a\u7a7a","email":"\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u7535\u5b50\u90ae\u7bb1","pls_enter":"\u8bf7\u8f93\u5165","password":"\u5bc6\u7801\u5fc5\u987b\u4e3a6~32\u4e2a\u5b57\u7b26","passcheck":"\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u4e00\u81f4","phone":"\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u624b\u673a\u53f7\u7801","terms":"\u8bf7\u9605\u8bfb\u5e76\u540c\u610f\u6761\u6b3e","sms_code":"\u9a8c\u8bc1\u7801\u9519\u8bef","captcha_verify":"\u8bf7\u70b9\u51fb\u6309\u94ae\u8fdb\u884c\u9a8c\u8bc1","captcha_fail":"\u70b9\u51fb\u9a8c\u8bc1\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5","nonce":"\u968f\u673a\u6570\u6821\u9a8c\u5931\u8d25","req_error":"\u8bf7\u6c42\u5931\u8d25"},"follow_btn":"<i class=\"wpcom-icon wi\"><svg aria-hidden=\"true\"><use xlink:href=\"#wi-add\"><\/use><\/svg><\/i>\u5173\u6ce8","followed_btn":"\u5df2\u5173\u6ce8","user_card":"1"}; /* ]]> */</script> <script type='text/javascript' src='https://laod.cn/wp-content/themes/justnews/js/main.js?ver=6.8.2' id='main-js'></script> <script type='text/javascript' src='https://laod.cn/wp-includes/js/comment-reply.min.js?ver=5.9.1' id='comment-reply-js'></script> <script type='text/javascript' id='wp-postviews-cache-js-extra'>/* <![CDATA[ */ var viewsCacheL10n = {"admin_ajax_url":"https:\/\/laod.cn\/wp-admin\/admin-ajax.php","post_id":"4564"}; /* ]]> */</script> <script type='text/javascript' src='https://laod.cn/wp-content/plugins/wp-postviews/postviews-cache.js?ver=1.68' id='wp-postviews-cache-js'></script> <script>var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?677efe1890b1822233366a5d48b479a5";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();</script> <script type="application/ld+json">{
-            "@context": {
-                "@context": {
-                    "images": {
-                      "@id": "http://schema.org/image",
-                      "@type": "@id",
-                      "@container": "@list"
-                    },
-                    "title": "http://schema.org/headline",
-                    "description": "http://schema.org/description",
-                    "pubDate": "http://schema.org/DateTime"
-                }
-            },
-            "@id": "https://laod.cn/tools/firefox-57-webextension.html",
-            "title": "Firefox 57+ 值得推荐的 WebExtension 拓展",
-            "images": ["https://laod.cn/wp-content/uploads/2018/03/Firefox.png"],
-            "description": "Firefox 从 57 版本开始将全面启用 WebExtensions 拓展，传统 XUL 拓展将不被支持，这个决定有利有弊，弊在于拓展功能性降低，利在于 WebExtensio...",
-            "pubDate": "2018-03-02T21:08:56",
-            "upDate": "2018-03-17T13:39:29"
-        }</script> <script>(function ($) {$(document).ready(function () {setup_share(1);})})(jQuery);</script> <script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){return}
-if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){return}
-images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
-if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://laod.cn/wp-content/plugins/wp-rocket/assets/js/lazyload/12.0/lazyload.min.js"></script></body></html>
-<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
+<h1 id="title">Firefox 57+ 值得推荐的 WebExtension 拓展</h1>
+<time id="date" datetime="2018-03-02T21:08:56+08:00">2018-03-02 21:08</time>
+<section id="content">
+    <p>
+        <a href="https://laod.cn/wp-content/uploads/2018/03/Firefox.png"
+            ><noscript
+                ><img
+                    class="alignnone size-full wp-image-4565"
+                    src="https://laod.cn/wp-content/uploads/2018/03/Firefox.png"
+                    alt="Firefox"
+                    width="575"
+                    height="332" /></noscript
+            ><img
+                class="alignnone size-full wp-image-4565 j-lazy"
+                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20575%20332'%3E%3C/svg%3E"
+                data-original="https://laod.cn/wp-content/uploads/2018/03/Firefox.png"
+                alt="Firefox"
+                width="575"
+                height="332"
+                data-lazy-src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png" /><noscript
+                ><img
+                    class="alignnone size-full wp-image-4565 j-lazy"
+                    src="https://laod.cn/wp-content/themes/justnews/themer/assets/images/lazy.png"
+                    data-original="https://laod.cn/wp-content/uploads/2018/03/Firefox.png"
+                    alt="Firefox"
+                    width="575"
+                    height="332" /></noscript
+        ></a>
+    </p>
+    <div class="toggle-box-content active">
+        Firefox 从 57 版本开始将全面启用 WebExtensions 拓展，传统 XUL
+        拓展将不被支持，这个决定有利有弊，弊在于拓展功能性降低，利在于
+        WebExtensions
+        拓展支持多进程，浏览速度将更加快速流畅，在跨浏览器拓展开发将更容易被移植，WebExtensions
+        拓展将是未来发展的方向，后续Firefox官方将会提供更多的API，Firefox
+        拓展也将比其他浏览器的拓展更加强大，更加Firefox。
+    </div>
+    <div class="toggle-box-content active">
+        <p>&nbsp;</p>
+        <p>
+            PS: 下面所列出的大部分 WebEtension
+            拓展均支持所有版本的Firefox，但部分拓展只支持Firefox57+。
+        </p>
+    </div>
+    <p class="toggle-box-head"><strong>拓展推荐</strong></p>
+    <div class="toggle-box-content active">
+        <table id="tablepress-62" class="tablepress tablepress-id-62">
+            <tbody class="row-hover">
+                <tr class="row-1 odd">
+                    <td class="column-1" colspan="2">
+                        <strong>WebExtensions 常用拓展替代</strong>
+                    </td>
+                </tr>
+                <tr class="row-2 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">视频下载</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/video-downloadhelper/"
+                                target="_blank"
+                                rel="noopener"
+                                >Video DownloadHelper</a
+                            >&nbsp;替代
+                            NetVideoHunter，支持的绝大多数网站。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-3 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">代理工具</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/switchyomega/"
+                                target="_blank"
+                                rel="noopener"
+                                >Proxy SwitchyOmega</a
+                            >&nbsp;替代 AutoProxy，相对比较简单。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-4 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">用户脚本管理</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/tampermonkey/"
+                                target="_blank"
+                                rel="noopener"
+                                >Tampermonkey</a
+                            >&nbsp;替代 Greasemonkey，Greasemonkey 4.0
+                            新版并不那么好用。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-5 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">用户样式管理</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/xstyle/"
+                                target="_blank"
+                                rel="noopener"
+                                >xStyle</a
+                            >&nbsp;替代 Stylish，Firefox吧出品，Stylish 3.0
+                            新版并不那么好用。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-6 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">拨号页工具</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/new-tab-speed-dial/"
+                                target="_blank"
+                                rel="noopener"
+                                >Speed dial 2</a
+                            >&nbsp;替代 Super
+                            Start，功能很完善，提供了大部分网站的略缩图。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-7 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">手形拖拽</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/scroll_anywhere/"
+                                target="_blank"
+                                rel="noopener"
+                                >ScrollAnywhere</a
+                            >&nbsp;替代 Grab and Drag，更加轻量化。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-8 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">视频广告过滤</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://www.yiclear.com/download/"
+                                target="_blank"
+                                rel="noopener"
+                                >YiClear</a
+                            >&nbsp;替代
+                            ACVAA，看上去是有团队在维护，失效点击更新即可。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-9 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">翻译工具</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/ql_en2zh/"
+                                target="_blank"
+                                rel="noopener"
+                                >轻灵划译</a
+                            >，虽然并不那么完美，但还是一款非常不错的翻译拓展。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-10 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">稍候阅读</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/in-my-pocket/"
+                                target="_blank"
+                                rel="noopener"
+                                >In My Pocket</a
+                            >&nbsp;替代
+                            ReadItLater，没想到还真有同类WE拓展，速度也很快。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-11 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">标签设置</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/tab-mix-plus-webextension/"
+                                target="_blank"
+                                rel="noopener"
+                                >Tab Mix WebExtension</a
+                            >，老牌标签拓展，还在实验开发阶段，功能不多。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-12 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">下载软件调用</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/thundercross/"
+                                target="_blank"
+                                rel="noopener"
+                                >ThunderCross</a
+                            >&nbsp;替代
+                            xThunder，安装后需要再次安装一个exe文件。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-13 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">广告过滤</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/ublock-origin/"
+                                target="_blank"
+                                rel="noopener"
+                                >uBlock Origin</a
+                            >，完美兼容新版和旧版Firefox。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-14 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">密码管理</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/lastpass-password-manager/"
+                                target="_blank"
+                                rel="noopener"
+                                >LastPass Password Manager</a
+                            >，完美兼容新版和旧版Firefox。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-15 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">视频弹窗</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >同时安装&nbsp;<a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/maximize-video/?src=api"
+                                target="_blank"
+                                rel="noopener"
+                                >Maximize Video</a
+                            >&nbsp;和&nbsp;<a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/popup-window/"
+                                target="_blank"
+                                rel="noopener"
+                                >Popup window</a
+                            >，可一键弹出小窗播放，替代火狐一键应用。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-16 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">图片批量下载</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/download-star/"
+                                target="_blank"
+                                rel="noopener"
+                                >Download Star</a
+                            >，遗憾不支持视频下载，替代 DownThemAll。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-17 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                </tr>
+                <tr class="row-18 even">
+                    <td class="column-1" colspan="2">
+                        <span style="font-size: 10pt"
+                            ><strong>功能增强</strong></span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-19 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/easy-youtube-video-download/"
+                                target="_blank"
+                                rel="noopener"
+                                >Youtube Video Downloader</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >Y2B下载工具，支持多种分辨率下载。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-20 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/adblock-for-youtube/"
+                                target="_blank"
+                                rel="noopener"
+                                >AdBlocker for YouTube</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >去除Y2B视频上的广告。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-21 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/email-notifier/"
+                                target="_blank"
+                                rel="noopener"
+                                >Email Notifier</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >邮件提醒功能，支持所有邮箱。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-22 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/site-to-panel/"
+                                target="_blank"
+                                rel="noopener"
+                                >Page to Panel</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >以手机UA和小窗口模式打开指定网页。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-23 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://www.eff.org/https-everywhere"
+                                target="_blank"
+                                rel="noopener"
+                                >https everywhere</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >只要网站提供 SSL 服务，就自动转到 HTTPS
+                            连接。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-24 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-cn/firefox/addon/onetab/"
+                                target="_blank"
+                                rel="noopener"
+                                >OneTab</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >标签页太多了？将您的标签页转换成一个列表</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-25 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/wikiwand-webextension/"
+                                target="_blank"
+                                rel="noopener"
+                                >WikiWand</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >让排版老旧的Wikipedia有一个全新的界面。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-26 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/second-search/"
+                                target="_blank"
+                                rel="noopener"
+                                >Second Search</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >引用标记了“关键字”的书签进行搜索。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-27 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/url-to-qrcode/"
+                                target="_blank"
+                                rel="noopener"
+                                >Url to QrCode</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >页面QRCode生成工具，优势在于支持所有页面。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-28 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/user-agent-string-switcher/"
+                                target="_blank"
+                                rel="noopener"
+                                >User-Agent Switcher</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >用户代理切换工具。代理选项非常完善。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-29 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/foxytab/"
+                                target="_blank"
+                                rel="noopener"
+                                >FoxyTab</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >标签增强工具。提供各种标签增强功能。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-30 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/multiple-tab-handler/"
+                                target="_blank"
+                                rel="noopener"
+                                >Multiple Tab Handler</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >标签增强工具。批量管理标签页。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-31 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/tab-center-redux/"
+                                target="_blank"
+                                rel="noopener"
+                                >Tab Center Redux</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >侧边栏工具。将当前打开的标签在移到侧边栏中显示，支持略缩图。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-32 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/"
+                                target="_blank"
+                                rel="noopener"
+                                >Tree Style Tab</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >侧边栏工具。将当前打开的标签全部在侧边栏中显示，同能显示标签之间的从属继承关系</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-33 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/tile-tabs-we/"
+                                target="_blank"
+                                rel="noopener"
+                                >Tile Tabs WE</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >标签页分割同屏显示，非常适合于同时进行多项任务的情况。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-34 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/dark-mode-webextension/?src=userprofile"
+                                target="_blank"
+                                rel="noopener"
+                                >Dark Mode</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >黑夜模式。将网页变成黑夜阅读模式。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-35 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/selection-context-search/?src=api"
+                                target="_blank"
+                                rel="noopener"
+                                >Selection Context Search</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >右键搜索工具。同类拓展里功能最多的，因API限制，无法使用搜索栏中的引擎。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-36 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/snaplinksplus/"
+                                target="_blank"
+                                rel="noopener"
+                                >Snap Links Plus</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >批量打开链接工具。一次性选择多个链接同时打开。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-37 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/nl/firefox/addon/update-scanner/"
+                                target="_blank"
+                                rel="noopener"
+                                >Update Scanner</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >监测跟踪网站更新工具。用于跟踪没有提供RSS的网站更新。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-38 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/image-reverse-search/"
+                                target="_blank"
+                                rel="noopener"
+                                >Reverse Image Search</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt">图片以图搜图工具。</span>
+                    </td>
+                </tr>
+                <tr class="row-39 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/bookmarks-organizer/"
+                                target="_blank"
+                                rel="noopener"
+                                >Bookmarks Organizer</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >书签整理工具。可以一键查找失效书签、重复书签、检测书签是否重定向并自动修复。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-40 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/brief/"
+                                target="_blank"
+                                rel="noopener"
+                                >Brief</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >RSS本地阅读器。老牌本地RSS阅读器的WE拓展版。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-41 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/save-in/"
+                                target="_blank"
+                                rel="noopener"
+                                >Save In…</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >快速保存工具。包括图片，视频，音频，还有已选文字到txt文档。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-42 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/textarea-cache/"
+                                target="_blank"
+                                rel="noopener"
+                                >Textarea Cache</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >自动保存输入框内已输入的文字。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-43 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/videospeed/"
+                                target="_blank"
+                                rel="noopener"
+                                >Video Speed Controller</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >HTML5视频全局控制播放工具。ZX为后退前进10秒，SD为减慢加快播放速度，R为恢复默认。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-44 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/link-text-and-location-copier/"
+                                target="_blank"
+                                rel="noopener"
+                                >Link Text and Location Copier</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >链接复制粘贴工具，支持多种格式，支持自定义。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-45 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/enable-rightclick-and-copy/"
+                                target="_blank"
+                                rel="noopener"
+                                >Enable Right Click and Copy</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >右键解锁工具。包括选择，复制，右键菜单等</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-46 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/ypsuperkey/"
+                                target="_blank"
+                                rel="noopener"
+                                >云盘万能钥匙</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >自动输入百度云分享文件的密码，还能提前显示分享的链接是否失效。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-47 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/copyfish-ocr-software/#&amp;gid=1&amp;pid=2"
+                                target="_blank"
+                                rel="noopener"
+                                >Copyfish</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >OCR文字识别工具。支持图片视频PDF，通过截图的方式进行认别。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-48 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/enable-rightclick-and-copy/"
+                                target="_blank"
+                                rel="noopener"
+                                >Enable Right Click and Copy</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >解除网页右键限制。在https加密网页上也能使用。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-49 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/search-multi-tabs/"
+                                target="_blank"
+                                rel="noopener"
+                                >Search Multi Tabs</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >同时搜索多个标签的关键词 。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-50 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/en-US/firefox/addon/block-site-2/"
+                                target="_blank"
+                                rel="noopener"
+                                >Block Site</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >让某一些网站无法访问，适合工作的时候使用。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-51 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/douyuhtml5player/"
+                                target="_blank"
+                                rel="noopener"
+                                >斗鱼HTML5播放器</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >做为第一大直播平台，没有HTML5播放器，实在说不过去。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-52 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/forget-that-page/"
+                                target="_blank"
+                                rel="noopener"
+                                >Forget that page</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >一键清理当前网页痕迹,，包括
+                            cookies、历史记录、本地存储、会话存储内容。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-53 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                </tr>
+                <tr class="row-54 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                </tr>
+                <tr class="row-55 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                </tr>
+                <tr class="row-56 even">
+                    <td class="column-1" colspan="2">
+                        <span style="font-size: 10pt"
+                            ><strong>开发者拓展</strong></span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-57 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">开发者工具箱</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >开发必备，Shift+Ctrl+Alt+I
+                            弹出开发者工具箱，替代DOM Inspector和Firebug。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-58 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://testpilot.firefox.com/"
+                                target="_blank"
+                                rel="noopener"
+                                >Firefox Test Pilot</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >Firefox测试飞行员，Firefox官方提供的各种新奇有趣的实验拓展。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-59 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/web-developer/?src=search"
+                                target="_blank"
+                                rel="noopener"
+                                >Web Developer</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >Web开发调试工具，查看网页元素。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-60 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/sharp-color-picker/?src=search"
+                                target="_blank"
+                                rel="noopener"
+                                >Sharp Color Picker</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >取色器和颜色调整，适合网页开发。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-61 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/chrome-store-foxified/"
+                                target="_blank"
+                                rel="noopener"
+                                >Chrome Store Foxified</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >让Firefox用上Chrome的扩展，但并不是所有都有使用。具体参考：<a
+                                href="http://www.apprcn.com/chrome-store-foxified.html/comment-page-1"
+                                target="_blank"
+                                rel="noopener"
+                                >这里</a
+                            >。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-62 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/header-editor/"
+                                target="_blank"
+                                rel="noopener"
+                                >Header Editor</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >管理浏览器请求，包括修改请求头和响应头、重定向请求、取消请求。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-63 odd">
+                    <td class="column-1">
+                        <span style="font-size: 10pt"
+                            ><a
+                                href="https://addons.mozilla.org/zh-CN/firefox/addon/crxviewer/"
+                                target="_blank"
+                                rel="noopener"
+                                >Extension source viewer</a
+                            ></span
+                        >
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt"
+                            >在不用安装Mozilla Addons 和Chrome Store
+                            拓展的情况下查看拓展源码和打包下载。</span
+                        >
+                    </td>
+                </tr>
+                <tr class="row-64 even">
+                    <td class="column-1">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                    <td class="column-2">
+                        <span style="font-size: 10pt">&nbsp;</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="entry-copyright">
+        <p>
+            原创文章，作者：老D，如若转载，请注明出处：https://laod.cn/tools/firefox-57-webextension.html
+        </p>
+    </div>
+</section>
